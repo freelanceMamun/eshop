@@ -1,6 +1,7 @@
 import { Manrope } from 'next/font/google';
 import './globals.css';
 
+import Navbar from '@/components/nav/navbar';
 // If loading a variable font, you don't need to specify the font weight
 const ManropeFont = Manrope({
   weight: '400',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${ManropeFont.className}  antialiased`}>
+        <Navbar></Navbar>
         {children}
       </body>
     </html>
