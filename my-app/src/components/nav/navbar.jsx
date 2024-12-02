@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { BiUser } from 'react-icons/bi';
+import { BiSearch } from 'react-icons/bi';
+import { BiHeart, BiShoppingBag } from 'react-icons/bi';
+
 const Navbar = () => {
   return (
     <nav className="">
-      <div className="container max-w-full px-6 py-4">
+      <div className="container max-w-full px-6 py-4 flex items-center justify-between">
         {/* Offer Section */}
         <div className="text-[11px] font-medium text-[#070707]">
           <p>
@@ -24,7 +28,26 @@ const Navbar = () => {
 
         {/* Control section */}
         <div className="flex items-center gap-2">
-          
+          <div>
+            <a className="text-xl" href="#" title="Login">
+              <BiUser></BiUser>
+            </a>
+          </div>
+          <div>
+            <a href="#" className="text-xl" title="Search">
+              <BiSearch></BiSearch>
+            </a>
+          </div>
+          <div>
+            <a href="#" className="text-xl" title="Wishlist">
+              <BiHeart></BiHeart>
+            </a>
+          </div>
+          <div>
+            <a href="#" className="text-xl" title="">
+              <BiShoppingBag></BiShoppingBag>
+            </a>
+          </div>
         </div>
 
         {/* Control section */}
