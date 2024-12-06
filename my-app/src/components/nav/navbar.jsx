@@ -27,29 +27,29 @@ const Navbar = () => {
         {/* === Brand Logo End */}
 
         {/* Control section */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <div>
-            <a className="text-xl" href="#" title="Login">
+            <a className="text-xl font-normal" href="#" title="Login">
               <BiUser></BiUser>
             </a>
           </div>
           <div>
-            <a href="#" className="text-xl" title="Search">
+            <a href="#" className="text-xl font-normal" title="Search">
               <BiSearch></BiSearch>
             </a>
           </div>
           <div>
-            <a href="#" className="text-xl" title="Wishlist">
+            <a href="#" className="text-xl font-normal" title="Wishlist">
               <BiHeart></BiHeart>
             </a>
           </div>
           <div>
-            <a href="#" className="text-xl" title="">
+            <a href="#" className="text-xl font-normal" title="">
               <BiShoppingBag></BiShoppingBag>
             </a>
           </div>
         </div>
-
+srwerw
         {/* Control section */}
       </div>
     </nav>
