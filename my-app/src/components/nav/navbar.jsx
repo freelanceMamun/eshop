@@ -3,7 +3,7 @@ import React from 'react';
 import { BiUser } from 'react-icons/bi';
 import { BiSearch } from 'react-icons/bi';
 import { BiHeart, BiShoppingBag } from 'react-icons/bi';
-
+import MenuBar from './menubar';
 const Navbar = () => {
   return (
     <nav className="">
@@ -25,7 +25,6 @@ const Navbar = () => {
           </div>
         </div>
         {/* === Brand Logo End */}
-
         {/* Control section */}
         <div className="flex items-center gap-4">
           <div>
@@ -49,9 +48,9 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-srwerw
         {/* Control section */}
       </div>
+      <MenuBar></MenuBar>
     </nav>
   );
 };
