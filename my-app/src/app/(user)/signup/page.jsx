@@ -66,7 +66,7 @@ const Register = () => {
             </form>
             <div className=" text-center mt-4">
               <p className="text-[11px]">
-                You a Member? <a href="/my-account">Login</a>{' '}
+                You a Member? <a href="/my-account" className=' underline'>Login</a>{' '}
               </p>
             </div>
           </div>
