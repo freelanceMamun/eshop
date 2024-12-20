@@ -7,10 +7,9 @@ const Login = () => {
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10">
           <h4 className="text-[17px] text-center font-semibold uppercase tracking-widest">
-            {' '}
             Login
           </h4>
-          <div className="mt-10">
+          <div className="mt-10 pb-24">
             <form action="">
               <div className="flex flex-col mb-2 mt-4">
                 <label
