@@ -19,3 +19,18 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.animi {
+  -webkit-animation: Marque 10s linear infinite;
+  animation: Marque 10s linear infinite;
+  transition-timing-function: linear !important;
+}
+
+@keyframes Marque {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 10px));
+  }
+}
