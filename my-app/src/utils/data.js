@@ -19,3 +19,6 @@ const SliderData = [
     title : "New Spring Collection 2023"
   },
 ];
+
+
+export {SliderData}
