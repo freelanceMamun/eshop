@@ -5,7 +5,7 @@ const Register = () => {
     <div>
       <BreadCum></BreadCum>
       <div className="flex items-center justify-center">
-        <div className="max-w-xl w-2/12 pt-10">
+        <div className="max-w-xl w-2/12 pt-10 pb-14">
           <h4 className="text-[17px] text-center font-semibold uppercase tracking-widest">
             {' '}
             Register
