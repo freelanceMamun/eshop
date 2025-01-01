@@ -50,4 +50,19 @@ const createUser = async (request, response) => {
   }
 };
 
+// Login User
+
+const loginUser = async (request, response) => {
+  const { email, password, username } = request.body;
+
+  try {
+    if (!email || !username || !password) {
+      return response.status(400).json({
+        success: false,
+        message: 'Please required the feild!',
+      });
+    }
+  } catch (error) {}
+};
+
 export { createUser };
