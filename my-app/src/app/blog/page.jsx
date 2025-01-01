@@ -7,17 +7,23 @@ const Blogs = () => {
   return (
     <div>
       <BreadCum></BreadCum>
-      <div className="py-5 container max-w-5xl m-auto">
+      <div className="py-5 container max-w-6xl m-auto">
         <h4 className=" uppercase font-semibold text-2xl">Blog</h4>
       </div>
-      <div className="container max-w-5xl m-auto">
+      <div className="container max-w-6xl m-auto">
         <div className="flex">
-          <div className="left-side">
+          <div className="left-side w-[730px]">
             <Article></Article>
             <Article></Article>
             <Article></Article>
           </div>
-          <div className="right-side sticky"></div>
+          <div className="right-side border border-l-0 w-[420px]">
+            <div className="py-8 px-8 w-full">
+              <h4 className=" uppercase tracking-wider text-[14px] font-semibold">
+                Categories
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -31,7 +37,7 @@ function Article() {
     <article>
       <div className="border border-b-0">
         <div className="flex">
-          <div className="w-[210px]">
+          <div className="w-[440px]">
             <img
               className="w-full h-full object-cover"
               src={thumbail.src}
@@ -46,7 +52,7 @@ function Article() {
               <h4 className="text-[23px] mb-3 uppercase font-medium">
                 Summer Collections
               </h4>
-              <p>
+              <p className=" text-[13px]">
                 Summer is just around the corner, which means it’s time to
                 update our wardrobes with the latest fashion trends.
               </p>
