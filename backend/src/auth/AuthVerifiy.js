@@ -2,14 +2,14 @@ import jwt from 'jsonwebtoken';
 
 // Generate a user login token
 
-const genetateToeke = async (req, res, paload) => {
+const genetateToeke = async (_req, res, paload) => {
   // Set the token as a cookie
 
   const token = jwt.sign(paload, process.env.jWT_SECRETEkEY, {
     expiresIn: '1h',
   }); // Sign the token
 
-  res.cookie('webnuxtauth', token, {
+  await res.cookie('webnuxtauth', token, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
     secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
     maxAge: 3600000, // 1 hour in milliseconds

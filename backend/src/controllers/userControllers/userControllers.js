@@ -97,4 +97,8 @@ const loginUser = async (request, response) => {
   } catch (error) {}
 };
 
-export { createUser };
+// Fogote Password
+
+const forgotePassword = async (request, response) => {};
+
+export { createUser, loginUser, forgotePassword };
