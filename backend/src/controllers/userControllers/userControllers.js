@@ -104,10 +104,19 @@ const loginUser = async (request, response) => {
 };
 
 // Fogote Password
-const forgotePassword = async (request, response) => {};
+const forgotePassword = async (request, response) => {
+  const { email, password } = request.body;
+
+  try {
+    if (!email && !password) {
+      return response.status(500).json({
+        status: false,
+        message: 'Please required the feild!',
+      });
+    }
+  } catch (error) {}
+};
 
 // admin controler Route
-
-const adminControllers = async (request, response) => {};
 
 export { createUser, loginUser, forgotePassword, adminControllers };
