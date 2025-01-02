@@ -2,6 +2,7 @@ import USER from '../../models/users/users.model.js';
 import { v4 as uuidv4 } from 'uuid';
 
 import becrypt from 'bcrypt';
+import { genetateToeke } from '../../auth/AuthVerifiy.js';
 
 const createUser = async (request, response) => {
   try {
@@ -62,6 +63,37 @@ const loginUser = async (request, response) => {
         message: 'Please required the feild!',
       });
     }
+
+    // Exit User not found
+    const userFound = await USER.findOne({ email, username });
+
+    if (!userFound) {
+      return response.status(400).json({
+        success: false,
+        message: 'User Not Found Please Sign up now! ',
+      });
+    }
+
+    // Password Check Validtion
+
+    const Checkpassword = await becrypt.compare(password, userFound.password);
+    if (!Checkpassword) {
+      return res
+        .status(404)
+        .json({ success: false, message: 'Invalid credentials' });
+    }
+
+    const payload = {
+      name: userFound.username,
+      id: userFound._id,
+    };
+    // Genrate Token
+    await genetateToeke(request, response, payload);
+
+    return response.status(200).json({
+      success: true,
+      message: 'User Loggin Susscesfull!',
+    });
   } catch (error) {}
 };
 

@@ -5,10 +5,11 @@ import jwt from 'jsonwebtoken';
 const genetateToeke = async (req, res, paload) => {
   // Set the token as a cookie
 
-  const user = { id: 1, username: 'Mamun' }; // Replace with your user data
-  const token = jwt.sign(user, SECRET_KEY, { expiresIn: '1h' }); // Sign the token
+  const token = jwt.sign(paload, process.env.jWT_SECRETEkEY, {
+    expiresIn: '1h',
+  }); // Sign the token
 
-  res.cookie('token', paload, {
+  res.cookie('webnuxtauth', token, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
     secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
     maxAge: 3600000, // 1 hour in milliseconds
@@ -31,4 +32,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-export { verifyToken };
+export { verifyToken, genetateToeke };
