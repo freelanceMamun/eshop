@@ -1,6 +1,5 @@
 import USER from '../../models/users/users.model.js';
 import { v4 as uuidv4 } from 'uuid';
-
 import becrypt from 'bcrypt';
 import { genetateToeke } from '../../auth/AuthVerifiy.js';
 
@@ -8,14 +7,16 @@ const createUser = async (request, response) => {
   try {
     const { username, email, password } = request.body;
 
-    if ((!username, !email, !password)) {
-      throw new Error('All field are required');
+    if (!username || !email || !password) {
+      return response
+        .status(400)
+        .json({ success: false, message: 'Please Required Feild' });
     }
 
-    const exisitUser = USER.findOne(email);
+    const exisitUser = await USER.findOne({ email });
 
     if (exisitUser) {
-      return request
+      return response
         .status(400)
         .json({ success: false, message: 'User already Exists' });
     }
@@ -40,7 +41,7 @@ const createUser = async (request, response) => {
       success: true,
       message: 'user creaated successfully',
       user: {
-        ...USER._doc,
+        ...user._doc,
         password: undefined,
       },
     });
@@ -78,7 +79,7 @@ const loginUser = async (request, response) => {
 
     const Checkpassword = await becrypt.compare(password, userFound.password);
     if (!Checkpassword) {
-      return res
+      return response
         .status(404)
         .json({ success: false, message: 'Invalid credentials' });
     }
@@ -94,11 +95,19 @@ const loginUser = async (request, response) => {
       success: true,
       message: 'User Loggin Susscesfull!',
     });
-  } catch (error) {}
+  } catch (error) {
+    return response.status(400).json({
+      message: error.message,
+      status: false,
+    });
+  }
 };
 
 // Fogote Password
-
 const forgotePassword = async (request, response) => {};
 
-export { createUser, loginUser, forgotePassword };
+// admin controler Route
+
+const adminControllers = async (request, response) => {};
+
+export { createUser, loginUser, forgotePassword, adminControllers };
