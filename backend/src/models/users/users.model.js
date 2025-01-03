@@ -2,21 +2,25 @@ import mongoose, { Schema } from 'mongoose';
 
 const userSchema = new Schema(
   {
-    username: {
+    name: {
       type: String,
-      require: true,
+      required: true,
+      trim: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
       unique: true,
+      lowercase: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
-    uuid: {
+    role: {
       type: String,
+      enum: ['admin', 'customer'],
+      default: 'customer',
     },
   },
   { timestamps: true }
