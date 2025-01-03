@@ -119,4 +119,26 @@ const forgotePassword = async (request, response) => {
 
 // admin controler Route
 
+const adminControllers = async (request, response) => {
+  const { email, password } = request.body;
+
+  try {
+    if (!email && !password) {
+      return response.status(500).json({
+        status: false,
+        message: 'Please required the feild!',
+      });
+    }
+
+    const FindAdmin = await USER.findOne({ email });
+
+    const adminPassword = await becrypt.compare(password, FindAdmin.password);
+  } catch (error) {
+    return response.status(500).json({
+      status: false,
+      message: error.message,
+    });
+  }
+};
+
 export { createUser, loginUser, forgotePassword, adminControllers };

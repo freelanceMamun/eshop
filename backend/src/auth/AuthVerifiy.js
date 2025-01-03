@@ -32,4 +32,6 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
+/// Email Verify Auth
+
 export { verifyToken, genetateToeke };
