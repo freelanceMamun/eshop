@@ -45,8 +45,6 @@ function authorizeRoles(...allowedRoles) {
   };
 }
 
-
-
 /// Email Verify Auth
 
 export { verifyToken, genetateToeke, authorizeRoles };

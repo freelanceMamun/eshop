@@ -5,9 +5,9 @@ import { genetateToeke } from '../../auth/AuthVerifiy.js';
 
 const createUser = async (request, response) => {
   try {
-    const { username, email, password } = request.body;
+    const { name, email, password, role } = request.body;
 
-    if (!username || !email || !password) {
+    if (!name || !email || !password) {
       return response
         .status(400)
         .json({ success: false, message: 'Please Required Feild' });
@@ -28,9 +28,10 @@ const createUser = async (request, response) => {
     // new user
 
     const user = new USER({
-      username,
+      name,
       password: encryptPassword,
       email: email,
+      role,
       uuid: uuidv4(),
     });
 
@@ -55,10 +56,10 @@ const createUser = async (request, response) => {
 // Login User
 
 const loginUser = async (request, response) => {
-  const { email, password, username } = request.body;
+  const { email, password, name } = request.body;
 
   try {
-    if (!email || !username || !password) {
+    if (!email || !name || !password) {
       return response.status(400).json({
         success: false,
         message: 'Please required the feild!',
@@ -66,7 +67,7 @@ const loginUser = async (request, response) => {
     }
 
     // Exit User not found
-    const userFound = await USER.findOne({ email, username });
+    const userFound = await USER.findOne({ email, name });
 
     if (!userFound) {
       return response.status(400).json({
@@ -85,7 +86,7 @@ const loginUser = async (request, response) => {
     }
 
     const payload = {
-      name: userFound.username,
+      name: userFound.name,
       id: userFound._id,
     };
     // Genrate Token
