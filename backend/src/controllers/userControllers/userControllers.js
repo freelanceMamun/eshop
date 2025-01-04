@@ -142,4 +142,47 @@ const adminControllers = async (request, response) => {
   }
 };
 
-export { createUser, loginUser, forgotePassword, adminControllers };
+// customer dashboard controllers
+
+const dashboardControllers = async (request, response) => {
+  try {
+    const { email, name, password } = request.body;
+
+    const Finduser = await USER.findOne({ email, name });
+
+    if (Finduser.role.includes('customer')) {
+      console.log('Customerfind now');
+      console.log(Finduser);
+    } else {
+      return response.status(404).json({
+        status: false,
+        message: 'user Not Found',
+      });
+    }
+
+    // passwordvalidtaion
+    const passwordvalidtaion = await becrypt.compare(
+      password,
+      Finduser.password
+    );
+     
+    
+     
+
+
+
+  } catch (error) {
+    return response.status(404).json({
+      status: false,
+      message: error.message,
+    });
+  }
+};
+
+export {
+  createUser,
+  loginUser,
+  forgotePassword,
+  adminControllers,
+  dashboardControllers,
+};

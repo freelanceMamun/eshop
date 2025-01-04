@@ -2,6 +2,7 @@ import express from 'express';
 const userRoute = express.Router();
 import {
   createUser,
+  dashboardControllers,
   loginUser,
 } from '../controllers/userControllers/userControllers.js';
 import { verifyToken, authorizeRoles } from '../auth/AuthVerifiy.js';
@@ -12,6 +13,8 @@ userRoute.post('/create-user', createUser);
 userRoute.post('/login', loginUser);
 
 // dashboard route in admin
+
+userRoute.post('/dashboard', dashboardControllers);
 
 // Protected route (Admin only)
 userRoute.get('/admin', verifyToken, authorizeRoles('admin'), (req, res) => {
