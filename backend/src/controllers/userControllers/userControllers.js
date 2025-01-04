@@ -165,12 +165,27 @@ const dashboardControllers = async (request, response) => {
       password,
       Finduser.password
     );
-     
-    
-     
 
+    // Check valid Password;
 
+    if (!passwordvalidtaion) {
+      return response
+        .status(400)
+        .json({ success: false, message: 'Invalid credentials' });
+    }
 
+    const payload = {
+      id: Finduser._id,
+      admin: Finduser.role,
+      name: Finduser.name,
+    };
+
+    await genetateToeke(request, response, payload);
+
+    return response.status(200).json({
+      success: true,
+      message: 'Dashboard Loggin Susscesfull!',
+    });
   } catch (error) {
     return response.status(404).json({
       status: false,
