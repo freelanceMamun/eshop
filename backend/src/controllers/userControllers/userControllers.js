@@ -150,39 +150,42 @@ const dashboardControllers = async (request, response) => {
 
     const Finduser = await USER.findOne({ email, name });
 
-    // passwordvalidtaion
-    const passwordvalidtaion = await becrypt.compare(
-      password,
-      Finduser.password
-    );
-
     if (Finduser.role.includes('customer')) {
-      // Check valid Password;
-
-      if (!passwordvalidtaion) {
-        return response
-          .status(400)
-          .json({ success: false, message: 'Invalid credentials' });
-      }
-
-      const payload = {
-        id: Finduser._id,
-        admin: Finduser.role,
-        name: Finduser.name,
-      };
-
-      await genetateTokenAdmin(request, response, payload);
-
-      return response.status(200).json({
-        success: true,
-        message: 'Dashboard Loggin Susscesfull!',
-      });
+      console.log('Customerfind now');
+      console.log(Finduser);
     } else {
       return response.status(404).json({
         status: false,
         message: 'user Not Found',
       });
     }
+
+    // passwordvalidtaion
+    const passwordvalidtaion = await becrypt.compare(
+      password,
+      Finduser.password
+    );
+
+    // Check valid Password;
+
+    if (!passwordvalidtaion) {
+      return response
+        .status(400)
+        .json({ success: false, message: 'Invalid credentials' });
+    }
+
+    const payload = {
+      id: Finduser._id,
+      admin: Finduser.role,
+      name: Finduser.name,
+    };
+
+    await genetateToken(request, response, payload);
+
+    return response.status(200).json({
+      success: true,
+      message: 'Dashboard Loggin Susscesfull!',
+    });
   } catch (error) {
     return response.status(404).json({
       status: false,

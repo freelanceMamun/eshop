@@ -21,14 +21,9 @@ userRoute.post('/login', loginUser);
 userRoute.post('/dashboard', verifyToken, dashboardControllers);
 
 // Protected route (Admin only)
-userRoute.get(
-  '/admin',
-  verifyAdminToken,
-  authorizeRoles('admin'),
-  (req, res) => {
-    res.json({ message: 'Welcome, Admin!' });
-  }
-);
+userRoute.get('/admin', (req, res) => {
+  return res.json({ message: 'Welcome, Admin!' });
+});
 
 export default userRoute;
 
