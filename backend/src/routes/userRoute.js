@@ -18,7 +18,7 @@ userRoute.post('/login', loginUser);
 
 // dashboard route in admin
 
-userRoute.post('/dashboard', verifyToken, dashboardControllers);
+userRoute.post('/dashboard', dashboardControllers);
 
 // Protected route (Admin only)
 userRoute.get('/admin', (req, res) => {

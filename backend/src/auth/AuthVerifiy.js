@@ -36,7 +36,9 @@ const verifyToken = async (req, res, next) => {
 
 function authorizeRoles(...allowedRoles) {
   return (req, res, next) => {
-    if (!req.user || !allowedRoles.includes(req.user.role)) {
+    console.log(req.user);
+
+    if (!req.user || !allowedRoles.includes(req.user.admin)) {
       return res
         .status(403)
         .json({ message: 'Access Denied: Insufficient permissions' });

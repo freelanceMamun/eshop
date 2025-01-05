@@ -118,7 +118,33 @@ const forgotePassword = async (request, response) => {
   } catch (error) {}
 };
 
-// admin controler Route
+// customer dashboard controllers
+const dashboardControllers = async (request, response) => {
+  try {
+    // find USER
+
+    const { email, password, name } = request.body;
+
+    const FindUser = await USER.findOne({ email, name });
+
+    if (!FindUser.role.includes('customer')) {
+      return response.status(404).json({
+        status: false,
+        message: 'User Not Found',
+      });
+    }
+
+    const Checkpassword = await becrypt.compare(password, FindUser.password);
+
+    if (!Checkpassword) {
+      return response
+        .status(404)
+        .json({ success: false, message: 'Invalid credentials' });
+    }
+  } catch (error) {}
+};
+
+// ==> ========== Admin Controllers
 
 const adminControllers = async (request, response) => {
   const { email, password } = request.body;
@@ -136,58 +162,6 @@ const adminControllers = async (request, response) => {
     const adminPassword = await becrypt.compare(password, FindAdmin.password);
   } catch (error) {
     return response.status(500).json({
-      status: false,
-      message: error.message,
-    });
-  }
-};
-
-// customer dashboard controllers
-
-const dashboardControllers = async (request, response) => {
-  try {
-    const { email, name, password } = request.body;
-
-    const Finduser = await USER.findOne({ email, name });
-
-    if (Finduser.role.includes('customer')) {
-      console.log('Customerfind now');
-      console.log(Finduser);
-    } else {
-      return response.status(404).json({
-        status: false,
-        message: 'user Not Found',
-      });
-    }
-
-    // passwordvalidtaion
-    const passwordvalidtaion = await becrypt.compare(
-      password,
-      Finduser.password
-    );
-
-    // Check valid Password;
-
-    if (!passwordvalidtaion) {
-      return response
-        .status(400)
-        .json({ success: false, message: 'Invalid credentials' });
-    }
-
-    const payload = {
-      id: Finduser._id,
-      admin: Finduser.role,
-      name: Finduser.name,
-    };
-
-    await genetateToken(request, response, payload);
-
-    return response.status(200).json({
-      success: true,
-      message: 'Dashboard Loggin Susscesfull!',
-    });
-  } catch (error) {
-    return response.status(404).json({
       status: false,
       message: error.message,
     });
