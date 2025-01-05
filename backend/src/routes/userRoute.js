@@ -5,7 +5,11 @@ import {
   dashboardControllers,
   loginUser,
 } from '../controllers/userControllers/userControllers.js';
-import { verifyToken, authorizeRoles } from '../auth/AuthVerifiy.js';
+import {
+  verifyToken,
+  authorizeRoles,
+  verifyAdminToken,
+} from '../auth/AuthVerifiy.js';
 // create user;
 userRoute.post('/create-user', createUser);
 
@@ -14,12 +18,17 @@ userRoute.post('/login', loginUser);
 
 // dashboard route in admin
 
-userRoute.post('/dashboard', dashboardControllers);
+userRoute.post('/dashboard', verifyToken, dashboardControllers);
 
 // Protected route (Admin only)
-userRoute.get('/admin', verifyToken, authorizeRoles('admin'), (req, res) => {
-  res.json({ message: 'Welcome, Admin!' });
-});
+userRoute.get(
+  '/admin',
+  verifyAdminToken,
+  authorizeRoles('admin'),
+  (req, res) => {
+    res.json({ message: 'Welcome, Admin!' });
+  }
+);
 
 export default userRoute;
 

@@ -1,7 +1,7 @@
 import USER from '../../models/users/users.model.js';
 import { v4 as uuidv4 } from 'uuid';
 import becrypt from 'bcrypt';
-import { genetateToeke } from '../../auth/AuthVerifiy.js';
+import { genetateToken, genetateTokenAdmin } from '../../auth/AuthVerifiy.js';
 
 const createUser = async (request, response) => {
   try {
@@ -90,7 +90,7 @@ const loginUser = async (request, response) => {
       id: userFound._id,
     };
     // Genrate Token
-    await genetateToeke(request, response, payload);
+    await genetateToken(request, response, payload);
 
     return response.status(200).json({
       success: true,
@@ -150,42 +150,39 @@ const dashboardControllers = async (request, response) => {
 
     const Finduser = await USER.findOne({ email, name });
 
-    if (Finduser.role.includes('customer')) {
-      console.log('Customerfind now');
-      console.log(Finduser);
-    } else {
-      return response.status(404).json({
-        status: false,
-        message: 'user Not Found',
-      });
-    }
-
     // passwordvalidtaion
     const passwordvalidtaion = await becrypt.compare(
       password,
       Finduser.password
     );
 
-    // Check valid Password;
+    if (Finduser.role.includes('customer')) {
+      // Check valid Password;
 
-    if (!passwordvalidtaion) {
-      return response
-        .status(400)
-        .json({ success: false, message: 'Invalid credentials' });
+      if (!passwordvalidtaion) {
+        return response
+          .status(400)
+          .json({ success: false, message: 'Invalid credentials' });
+      }
+
+      const payload = {
+        id: Finduser._id,
+        admin: Finduser.role,
+        name: Finduser.name,
+      };
+
+      await genetateTokenAdmin(request, response, payload);
+
+      return response.status(200).json({
+        success: true,
+        message: 'Dashboard Loggin Susscesfull!',
+      });
+    } else {
+      return response.status(404).json({
+        status: false,
+        message: 'user Not Found',
+      });
     }
-
-    const payload = {
-      id: Finduser._id,
-      admin: Finduser.role,
-      name: Finduser.name,
-    };
-
-    await genetateToeke(request, response, payload);
-
-    return response.status(200).json({
-      success: true,
-      message: 'Dashboard Loggin Susscesfull!',
-    });
   } catch (error) {
     return response.status(404).json({
       status: false,
