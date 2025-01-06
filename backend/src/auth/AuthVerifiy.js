@@ -9,7 +9,7 @@ const genetateToken = async (_req, res, paload) => {
     expiresIn: '1h',
   }); // Sign the token
 
-  await res.cookie('webnuxtauth', token, {
+  return await res.cookie('webnuxtauth', token, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
     secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
     maxAge: 3600000, // 1 hour in milliseconds
@@ -38,7 +38,7 @@ function authorizeRoles(...allowedRoles) {
   return (req, res, next) => {
     console.log(req.user);
 
-    if (!req.user || !allowedRoles.includes(req.user.admin)) {
+    if (!req.user || !allowedRoles.includes(req.user.role)) {
       return res
         .status(403)
         .json({ message: 'Access Denied: Insufficient permissions' });
@@ -46,7 +46,6 @@ function authorizeRoles(...allowedRoles) {
     next();
   };
 }
-
 // Generate a user login token
 
 const genetateTokenAdmin = async (_req, res, paload) => {

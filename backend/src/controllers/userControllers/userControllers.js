@@ -88,6 +88,7 @@ const loginUser = async (request, response) => {
     const payload = {
       name: userFound.name,
       id: userFound._id,
+      role: userFound.role,
     };
     // Genrate Token
     await genetateToken(request, response, payload);
@@ -120,28 +121,7 @@ const forgotePassword = async (request, response) => {
 
 // customer dashboard controllers
 const dashboardControllers = async (request, response) => {
-  try {
-    // find USER
-
-    const { email, password, name } = request.body;
-
-    const FindUser = await USER.findOne({ email, name });
-
-    if (!FindUser.role.includes('customer')) {
-      return response.status(404).json({
-        status: false,
-        message: 'User Not Found',
-      });
-    }
-
-    const Checkpassword = await becrypt.compare(password, FindUser.password);
-
-    if (!Checkpassword) {
-      return response
-        .status(404)
-        .json({ success: false, message: 'Invalid credentials' });
-    }
-  } catch (error) {}
+  return response.status(200).json({ status: true, message: 'Dashboard' });
 };
 
 // ==> ========== Admin Controllers
