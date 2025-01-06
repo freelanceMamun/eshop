@@ -4,6 +4,7 @@ import {
   createUser,
   dashboardControllers,
   loginUser,
+  adminControllers,
 } from '../controllers/userControllers/userControllers.js';
 import {
   verifyToken,
@@ -26,8 +27,27 @@ userRoute.post(
 );
 
 // Protected route (Admin only)
-userRoute.get('/admin', (req, res) => {
-  return res.json({ message: 'Welcome, Admin!' });
+userRoute.post('/admin', adminControllers);
+
+userRoute.get(
+  '/admin',
+  verifyAdminToken,
+  authorizeRoles('admin'),
+  (request, response) => {
+    return response.json({ message: 'welcome to admin' });
+  }
+);
+
+// logout controllers
+
+userRoute.get('/logout', (req, res) => {
+  // Iterate through all cookies and clear them
+  const cookies = req.cookies;
+  for (const cookieName in cookies) {
+    res.clearCookie(cookieName);
+  }
+
+  return res.json({ message: 'All cookies cleared' });
 });
 
 export default userRoute;
