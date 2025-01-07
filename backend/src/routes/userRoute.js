@@ -38,6 +38,15 @@ userRoute.get(
   }
 );
 
+// Forgate Password user
+
+userRoute.post('/reset-password', (req, res) => {
+  return res.status(200).json({
+    status: true,
+    message: 'Forgate password',
+  });
+});
+
 // logout controllers
 
 userRoute.get('/logout', (req, res) => {
