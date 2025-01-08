@@ -27,7 +27,7 @@ const ResetPassword = () => {
 
               <div className=" mb-2 mt-4">
                 <button className=" bg-black uppercase text-white w-full text-[11px] tracking-widest py-3">
-                  Log in
+                  Send Now
                 </button>
               </div>
             </form>

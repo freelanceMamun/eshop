@@ -28,6 +28,10 @@ body {
   transition: opacity 0.3s linear, transform 0.3s linear;
 }
 
+.product-picture:hover {
+  background: #f4f4f4;
+}
+
 .second-picture {
   opacity: 0;
   transform: scale(1, 1);
