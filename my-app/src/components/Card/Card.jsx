@@ -16,7 +16,7 @@ const Card = () => {
             -20%
           </div>
         </div>
-        <div className=" relative hover:bg-[#000000]">
+        <div className="relative Product">
           <div className=" relative overflow-hidden">
             <Image
               quality={100}
