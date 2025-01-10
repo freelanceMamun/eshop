@@ -18,10 +18,45 @@ const QuickViewModal = () => {
             </div>
             {/* Size */}
             <div className="">
-              <p>SIZE</p>
-              <div className=""></div>
+              <div className="flex items-center justify-between">
+                <p className="uppercase text-[12px] font-semibold">Size</p>
+                <p className="uppercase">Size Guide</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href="#" className="border p-2 text-[10px]">
+                  2
+                </a>
+                <a href="#" className="border p-2 text-[10px]">
+                  4
+                </a>
+                <a href="#" className="border p-2 text-[10px]">
+                  5
+                </a>
+                <a href="#" className="border p-2 text-[10px]">
+                  6
+                </a>
+              </div>
             </div>
             {/* Color */}
+            <div className="">
+              <div className="flex items-center justify-between">
+                <p className="uppercase text-[12px] font-semibold">Size</p>
+                <p className="uppercase">Size Guide</p>
+              </div>
+            </div>
+            {/* Add to  Cart */}
+            <div className="">
+              <div className="flex items-center">
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+              </div>
+              <div>
+                <button className="bg-black py-3  tracking-wider hover:text-white flex items-center gap-2 flex-1 w-full  px-6 hover:bg-black transition-all duration-300 text-[11px] uppercase">
+                  Add to cart
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
