@@ -4,7 +4,47 @@ const productScheama = new Schema(
   {
     title: {
       type: String,
-      require: true,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    sortdescription: {
+      type: String,
+      required: true,
+    },
+    regularPrice: {
+      type: Number,
+      required: true,
+    },
+    oldPrice: {
+      type: Number,
+      required: true,
+    },
+    tags: {
+      type: Array,
+    },
+    catagoris: {
+      type: Array,
+    },
+    colors: {
+      type: Array,
+    },
+    size: {
+      type: Array,
+    },
+    Gallery: {
+      type: Array,
+      required: true,
+    },
+    FeatcherImage: {
+      type: String,
+      required: true,
+    },
+    hoverImage: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
