@@ -16,9 +16,8 @@ const SliderData = [
   {
     id: 3,
     src: Img3,
-    title : "New Spring Collection 2023"
+    title: 'New Spring Collection 2023',
   },
 ];
 
-
-export {SliderData}
+export { SliderData };
