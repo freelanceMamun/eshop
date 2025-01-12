@@ -4,7 +4,6 @@ import Card from '@/components/Card/Card';
 import QuickViewModal from '@/components/modal/QuickViewModal';
 import Banner from '@/components/Banner/Banner';
 
-
 export default function Home() {
   return (
     <div className="">
@@ -64,6 +63,16 @@ export default function Home() {
       <Banner></Banner>
       <></>
       {/* <QuickViewModal /> */}
+
+      <div className="py-12 lg:px-16">
+        <div className="text-center">
+          <p className="text-5xl">
+            We believe that every human deserves to feel beautiful and
+            confident, and we are committed to providing you with the best
+            quality and styles that will make you look and feel your best.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
