@@ -29,7 +29,7 @@ const BannerSlider = () => {
                     <div className="px-14">
                       <div className=" pb-8">
                         <h1 className="text-[64px] text-black tracking-tighter font-medium leading-[66px] ">
-                          New Spring Collection 2023
+                          New Spring Collection 2025
                         </h1>
                       </div>
                       <div className="pb-8">
