@@ -46,6 +46,13 @@ const productScheama = new Schema(
       type: String,
       required: true,
     },
+    brand: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
+
+const productModel = mongoose.model('products', productScheama);
+
+export { productModel };

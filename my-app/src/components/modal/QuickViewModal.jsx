@@ -7,7 +7,7 @@ const QuickViewModal = () => {
     <div className="bg-white/95  absolute w-full top-0 left-0 flex items-center justify-center  h-screen">
       <div className="border bg-white lg:max-w-[800px] border-black p-6">
         <div className="grid grid-cols-2">
-          <div className="">
+          <div className="h-[85%]">
             <Image
               quality={100}
               unoptimized={true}
