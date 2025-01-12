@@ -2,6 +2,8 @@ import BannerSlider from '@/components/slider/BannerSlider';
 import MarqueText from '@/components/marqueText/marqueText';
 import Card from '@/components/Card/Card';
 import QuickViewModal from '@/components/modal/QuickViewModal';
+import Banner from '@/components/Banner/Banner';
+
 
 export default function Home() {
   return (
@@ -58,7 +60,9 @@ export default function Home() {
           <Card></Card>
         </div>
       </div>
-
+      {/* Slider */}
+      <Banner></Banner>
+      <></>
       {/* <QuickViewModal /> */}
     </div>
   );
