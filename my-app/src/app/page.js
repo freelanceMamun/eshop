@@ -3,7 +3,7 @@ import MarqueText from '@/components/marqueText/marqueText';
 import Card from '@/components/Card/Card';
 import QuickViewModal from '@/components/modal/QuickViewModal';
 import Banner from '@/components/Banner/Banner';
-
+import CategoryBanner from '@/components/Banner/CategoryBanner';
 export default function Home() {
   return (
     <div className="">
@@ -73,6 +73,8 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      <CategoryBanner></CategoryBanner>
     </div>
   );
 }
