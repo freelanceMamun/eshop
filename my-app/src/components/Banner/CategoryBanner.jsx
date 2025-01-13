@@ -7,7 +7,10 @@ const CategoryBanner = () => {
       <div>
         <div className=" grid grid-cols-4">
           <div className="border h-[650px] border-black border-r-0">
-            <div className="h-full  relative  after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  after:opacity-0 hover:after:opacity-70">
+            <div
+              className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
+            after:opacity-0 hover:after:opacity-80"
+            >
               <Image
                 quality={100}
                 unoptimized={true}
@@ -24,7 +27,10 @@ const CategoryBanner = () => {
             </div>
           </div>
           <div className="border h-[650px] border-black border-r-0">
-            <div className="h-full  relative ">
+            <div
+              className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
+            after:opacity-0 hover:after:opacity-80"
+            >
               <Image
                 quality={100}
                 unoptimized={true}
@@ -33,7 +39,7 @@ const CategoryBanner = () => {
                 alt=""
                 className="h-full w-full"
               />
-              <div className="absolute top-[45%] text-center left-0 w-full">
+              <div className="absolute top-[45%] z-[2] text-center left-0 w-full">
                 <button className="text-[14px] font-bold tracking-widest uppercase px-12 py-4 bg-white">
                   WOMAN
                 </button>
@@ -41,7 +47,10 @@ const CategoryBanner = () => {
             </div>
           </div>
           <div className="border h-[650px] border-black border-r-0">
-            <div className="h-full  relative ">
+            <div
+              className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
+            after:opacity-0 hover:after:opacity-80"
+            >
               <Image
                 quality={100}
                 unoptimized={true}
@@ -50,15 +59,19 @@ const CategoryBanner = () => {
                 alt=""
                 className="h-full w-full"
               />
-              <div className="absolute top-[45%] text-center left-0 w-full">
+              <div className="absolute top-[45%] z-[2] text-center left-0 w-full">
                 <button className="text-[14px] font-bold tracking-widest uppercase px-12 py-4 bg-white">
                   WOMAN
                 </button>
               </div>
             </div>
           </div>
-          <div className="border h-[650px] border-black">
-            <div className="h-full  relative ">
+
+          <div className="border h-[650px] border-black border-r-0">
+            <div
+              className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
+            after:opacity-0 hover:after:opacity-80"
+            >
               <Image
                 quality={100}
                 unoptimized={true}
@@ -67,7 +80,7 @@ const CategoryBanner = () => {
                 alt=""
                 className="h-full w-full"
               />
-              <div className="absolute top-[45%] text-center left-0 w-full">
+              <div className="absolute top-[45%] z-[2] text-center left-0 w-full">
                 <button className="text-[14px] font-bold tracking-widest uppercase px-12 py-4 bg-white">
                   WOMAN
                 </button>
