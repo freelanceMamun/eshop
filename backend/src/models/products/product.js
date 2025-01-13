@@ -49,6 +49,9 @@ const productScheama = new Schema(
     brand: {
       type: String,
     },
+    catagorythumbail: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
