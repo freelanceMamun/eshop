@@ -75,6 +75,8 @@ export default function Home() {
       </div>
 
       <CategoryBanner></CategoryBanner>
+
+      <MarqueText></MarqueText>
     </div>
   );
 }
