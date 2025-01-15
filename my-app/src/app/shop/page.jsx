@@ -3,6 +3,7 @@ import BreadCum from '@/components/breadcum/breadcum';
 
 import CategoryThum from '@/asset/moderno-2738826553-300x300.webp';
 import Card from '@/components/Card/Card';
+import ShopFilter from '@/components/Filter/shopFilter';
 
 const Shop = () => {
   return (
@@ -52,7 +53,9 @@ const Shop = () => {
       </div>
       {/* Shops Archive */}
       <div className="flex">
-        <div className=" basis-[40%] pl-5 border border-r-0">left</div>
+        <div className=" basis-[40%] pl-5 border border-r-0">
+          <ShopFilter />
+        </div>
         <div className=" grid grid-cols-4">
           <Card></Card>
           <Card></Card>
