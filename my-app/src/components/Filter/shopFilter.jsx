@@ -10,6 +10,7 @@ const ShopFilter = () => {
     <div>
       <div className="px-4">
         <div
+          style={{ height: height }}
           className={`border-b overflow-hidden transition-all duration-300 border-[#ddd]`}
         >
           <h6 className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between">
@@ -44,7 +45,10 @@ const ShopFilter = () => {
             </div>
           </div>
         </div>
-        <div className="border-b transition-all duration-300 border-[#ddd]">
+        <div
+          style={{ height: height }}
+          className="border-b transition-all overflow-hidden duration-300 border-[#ddd]"
+        >
           <h6 className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between">
             categories
             <FaPlus></FaPlus>
@@ -77,7 +81,10 @@ const ShopFilter = () => {
             </div>
           </div>
         </div>
-        <div className="border-b transition-all duration-300 border-[#ddd]">
+        <div
+          style={{ height: height }}
+          className="border-b transition-all  overflow-hidden duration-300 border-[#ddd]"
+        >
           <h6 className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between">
             categories
             <FaPlus></FaPlus>
@@ -110,7 +117,10 @@ const ShopFilter = () => {
             </div>
           </div>
         </div>
-        <div className="border-b transition-all duration-300 border-[#ddd]">
+        <div
+          style={{ height: height }}
+          className="border-b transition-all overflow-hidden duration-300 border-[#ddd]"
+        >
           <h6 className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between">
             categories
             <FaPlus></FaPlus>
