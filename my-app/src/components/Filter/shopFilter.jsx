@@ -1,12 +1,17 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa6';
 
 const ShopFilter = () => {
+  const [taggle, setTaggle] = useState(false);
+  const [height, setHeight] = useState('45px');
+
   return (
     <div>
       <div className="px-4">
-        <div className="border-b transition-all duration-300 border-[#ddd]">
+        <div
+          className={`border-b overflow-hidden transition-all duration-300 border-[#ddd]`}
+        >
           <h6 className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between">
             categories
             <FaPlus></FaPlus>
