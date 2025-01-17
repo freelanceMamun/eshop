@@ -7,6 +7,7 @@ import { useState } from 'react';
 // import { useRouter } from 'next/router';
 import { RegisterRoute } from '@/services/api';
 
+import { toast, ToastContainer } from 'react-toastify';
 const Register = () => {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ const Register = () => {
 
   const [error, setError] = useState({});
 
+  const notify = () => toast('Wow so easy!');
   // const router = useRouter();
 
   const handelRegister = async (e) => {
@@ -28,9 +30,13 @@ const Register = () => {
   return (
     <div>
       <BreadCum></BreadCum>
+      <ToastContainer></ToastContainer>
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10 pb-14">
-          <h4 className="text-[17px] text-center font-semibold uppercase tracking-widest">
+          <h4
+            onClick={notify}
+            className="text-[17px] text-center font-semibold uppercase tracking-widest"
+          >
             Register
           </h4>
           <div className="mt-10">
@@ -84,7 +90,10 @@ const Register = () => {
                 </p>
               </div>
               <div className=" mb-2 mt-4">
-                <button className=" bg-black text-white w-full text-[11px] tracking-widest py-3">
+                <button
+                  onClick={notify}
+                  className=" bg-black text-white w-full text-[11px] tracking-widest py-3"
+                >
                   REGISTER
                 </button>
               </div>

@@ -5,11 +5,9 @@ import QuickViewModal from '@/components/modal/QuickViewModal';
 import Banner from '@/components/Banner/Banner';
 import CategoryBanner from '@/components/Banner/CategoryBanner';
 
-import { ToastContainer } from 'react-toastify';
 export default function Home() {
   return (
     <main className="">
-      <ToastContainer></ToastContainer>
       <BannerSlider></BannerSlider>
       <MarqueText></MarqueText>
       <div className="py-10">
