@@ -13,8 +13,14 @@ const Login = (email, password) => {
 
 // Register Route Api Fetch
 
-const RegisterRoute = (username, email, password) => {
-  api.post('/api/user/create-user', { username, email, password });
+const RegisterRoute = (name, email, password) => {
+  const response = api.post('http://localhost:4000/api/user/create-user', {
+    name,
+    email,
+    password,
+  });
+
+  return response;
 };
 
 // Logout User

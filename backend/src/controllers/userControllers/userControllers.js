@@ -31,7 +31,6 @@ const createUser = async (request, response) => {
       name,
       password: encryptPassword,
       email: email,
-      role,
       uuid: uuidv4(),
     });
 
@@ -59,7 +58,7 @@ const loginUser = async (request, response) => {
   const { email, password } = request.body;
 
   try {
-    if (!email  || !password) {
+    if (!email || !password) {
       return response.status(400).json({
         success: false,
         message: 'Please required the feild!',
@@ -67,7 +66,7 @@ const loginUser = async (request, response) => {
     }
 
     // Exit User not found
-    const userFound = await USER.findOne({ email, });
+    const userFound = await USER.findOne({ email });
 
     if (!userFound) {
       return response.status(400).json({

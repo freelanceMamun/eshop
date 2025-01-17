@@ -4,26 +4,31 @@ import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
 import { useState } from 'react';
 
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { RegisterRoute } from '@/services/api';
 
 import { toast, ToastContainer } from 'react-toastify';
 const Register = () => {
-  const [username, setUserName] = useState('');
+  const [name, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [error, setError] = useState(null);
 
-  // const router = useRouter();
+  const router = useRouter();
 
   const handelRegister = async (e) => {
     e.preventDefault();
+    if (!email || !name || !password) {
+      toast.error('Error: Please provide a valid email address.');
 
+      return;
+    }
     try {
-      if (!email || !username || !password) {
-        toast.error('Error: Please provide a valid email address.');
-      }
+      const response = await RegisterRoute(name, email, password);
+      console.log(response);
+
+      router.push('/my-account');
     } catch (error) {}
   };
 
@@ -54,7 +59,7 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="name"
-                  value={username}
+                  value={name}
                   onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
