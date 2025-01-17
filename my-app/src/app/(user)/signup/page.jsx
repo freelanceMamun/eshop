@@ -13,34 +13,35 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState(null);
 
-  const notify = () => toast('Wow so easy!');
   // const router = useRouter();
 
   const handelRegister = async (e) => {
     e.preventDefault();
 
     try {
-    } catch (error) {
-      setError({ message: error.message });
-    }
+      if (!email || !username || !password) {
+        toast.error('Error: Please provide a valid email address.');
+      }
+    } catch (error) {}
   };
 
   return (
     <div>
       <BreadCum></BreadCum>
-      <ToastContainer></ToastContainer>
+      <ToastContainer
+        autoClose={4000}
+        className={' w-[400px]'}
+      ></ToastContainer>
+
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10 pb-14">
-          <h4
-            onClick={notify}
-            className="text-[17px] text-center font-semibold uppercase tracking-widest"
-          >
+          <h4 className="text-[17px] text-center font-semibold uppercase tracking-widest">
             Register
           </h4>
           <div className="mt-10">
-            <form action="">
+            <form onSubmit={handelRegister}>
               <div className="flex flex-col mb-2 mt-4">
                 <label
                   className="text-[11px] mb-1 uppercase font-semibold tracking-widest text-[#303030]"
@@ -53,6 +54,8 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="name"
+                  value={username}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               <div className="flex flex-col mb-2 mt-4">
@@ -66,6 +69,8 @@ const Register = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="text"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="flex flex-col mb-2 mt-4">
@@ -80,6 +85,10 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
               </div>
               <div>
@@ -90,10 +99,7 @@ const Register = () => {
                 </p>
               </div>
               <div className=" mb-2 mt-4">
-                <button
-                  onClick={notify}
-                  className=" bg-black text-white w-full text-[11px] tracking-widest py-3"
-                >
+                <button className=" bg-black text-white w-full text-[11px] tracking-widest py-3">
                   REGISTER
                 </button>
               </div>

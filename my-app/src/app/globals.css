@@ -56,6 +56,13 @@ body {
   transition-timing-function: linear !important;
 }
 
+.Toastify__toast {
+  @apply w-[420px] border border-black;
+}
+
+.Toastify__progress-bar--error {
+  @apply bg-transparent;
+}
 @keyframes Marque {
   0% {
     transform: translateX(0);
