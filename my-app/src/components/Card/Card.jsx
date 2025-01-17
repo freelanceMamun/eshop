@@ -23,6 +23,7 @@ const Card = () => {
               unoptimized={true}
               width={100}
               src={pimg}
+              alt="Product"
               className="w-full h-full Frist-picture"
             ></Image>
             <Image
@@ -30,6 +31,7 @@ const Card = () => {
               unoptimized={true}
               width={100}
               height={100}
+              alt="Product"
               className="w-full h-full second-picture absolute top-0 left-0"
               src={poImg}
             ></Image>

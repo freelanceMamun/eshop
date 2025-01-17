@@ -1,6 +1,16 @@
+'use client';
+
 import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
+import { useState } from 'react';
+
+import { useRouter } from 'next/router';
+
 const Register = () => {
+  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div>
       <BreadCum></BreadCum>
@@ -23,6 +33,7 @@ const Register = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="text"
                   name="name"
+                  placeholder="name"
                 />
               </div>
               <div className="flex flex-col mb-2 mt-4">
@@ -49,6 +60,7 @@ const Register = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="password"
                   name="password"
+                  placeholder="password"
                 />
               </div>
               <div>
@@ -66,7 +78,10 @@ const Register = () => {
             </form>
             <div className=" text-center mt-4">
               <p className="text-[11px]">
-                You a Member? <a href="/my-account" className=' underline'>Login</a>{' '}
+                You a Member?{' '}
+                <a href="/my-account" className=" underline">
+                  Login
+                </a>{' '}
               </p>
             </div>
           </div>
