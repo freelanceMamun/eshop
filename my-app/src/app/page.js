@@ -4,9 +4,12 @@ import Card from '@/components/Card/Card';
 import QuickViewModal from '@/components/modal/QuickViewModal';
 import Banner from '@/components/Banner/Banner';
 import CategoryBanner from '@/components/Banner/CategoryBanner';
+
+import { ToastContainer } from 'react-toastify';
 export default function Home() {
   return (
-    <div className="">
+    <main className="">
+      <ToastContainer></ToastContainer>
       <BannerSlider></BannerSlider>
       <MarqueText></MarqueText>
       <div className="py-10">
@@ -77,6 +80,6 @@ export default function Home() {
       <CategoryBanner></CategoryBanner>
 
       <MarqueText></MarqueText>
-    </div>
+    </main>
   );
 }

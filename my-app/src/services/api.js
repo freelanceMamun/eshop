@@ -7,12 +7,20 @@ const api = axios.create({
 
 // Login Route api Fetch
 
-const Login = (username, email, password) => {
-  api.post('/api/user/login', { username, email, password });
+const Login = (email, password) => {
+  api.post('/api/user/login', { email, password });
 };
 
 // Register Route Api Fetch
 
-const Register = (username, email, password) => {
+const RegisterRoute = (username, email, password) => {
   api.post('/api/user/create-user', { username, email, password });
 };
+
+// Logout User
+
+const Logout = () => {
+  api.get('/api/user/logout');
+};
+
+export { Login, RegisterRoute, Logout };

@@ -4,12 +4,26 @@ import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
 import { useState } from 'react';
 
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
+import { RegisterRoute } from '@/services/api';
 
 const Register = () => {
   const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [error, setError] = useState({});
+
+  // const router = useRouter();
+
+  const handelRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+    } catch (error) {
+      setError({ message: error.message });
+    }
+  };
 
   return (
     <div>
@@ -17,7 +31,6 @@ const Register = () => {
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10 pb-14">
           <h4 className="text-[17px] text-center font-semibold uppercase tracking-widest">
-            {' '}
             Register
           </h4>
           <div className="mt-10">
