@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import {} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { Login as LoginAPi } from '@/services/api';
 import { toast, ToastContainer } from 'react-toastify';
@@ -13,12 +13,25 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const [error, setError] = useState('');
-
+  const router = useRouter();
   const handelLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
+      toast.error('Error: Please required the fild');
+      return;
     }
+
+    try {
+      try {
+        const response = await RegisterRoute(name, email, password);
+        console.log(response);
+
+        //   router.push('/');
+      } catch (error) {
+        setError({ message: error.message });
+      }
+    } catch (error) {}
   };
   return (
     <div>
