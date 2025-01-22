@@ -29,7 +29,9 @@ const Register = () => {
       console.log(response);
 
       router.push('/my-account');
-    } catch (error) {}
+    } catch (error) {
+      setError({ message: error.message });
+    }
   };
 
   return (

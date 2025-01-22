@@ -1,8 +1,31 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+
+import {} from 'next/navigation';
+
+import { Login as LoginAPi } from '@/services/api';
+import { toast, ToastContainer } from 'react-toastify';
+
 import BreadCum from '@/components/breadcum/breadcum';
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [error, setError] = useState('');
+
+  const handelLogin = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+    }
+  };
   return (
     <div>
+      <ToastContainer
+        autoClose={4000}
+        className={' w-[400px]'}
+      ></ToastContainer>
       <BreadCum></BreadCum>
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10">
@@ -22,6 +45,8 @@ const Login = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="text"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="flex flex-col mb-2 mt-4">
@@ -35,6 +60,8 @@ const Login = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="password"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="flex justify-between">
