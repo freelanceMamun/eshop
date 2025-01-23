@@ -24,10 +24,10 @@ const Login = () => {
 
     try {
       try {
-        const response = await RegisterRoute(name, email, password);
+        const response = await LoginAPi(name, email, password);
         console.log(response);
 
-        //   router.push('/');
+        router.push('/dashboard');
       } catch (error) {
         setError({ message: error.message });
       }
@@ -46,7 +46,7 @@ const Login = () => {
             Login
           </h4>
           <div className="mt-10 pb-24">
-            <form action="">
+            <form action="" onSubmit={handelLogin}>
               <div className="flex flex-col mb-2 mt-4">
                 <label
                   className="text-[11px]  mb-1 uppercase font-semibold tracking-widest text-[#303030]"
