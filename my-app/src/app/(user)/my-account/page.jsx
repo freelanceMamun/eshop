@@ -24,7 +24,7 @@ const Login = () => {
 
     try {
       try {
-        const response = await LoginAPi(name, email, password);
+        const response = await LoginAPi(email, password);
         console.log(response);
 
         router.push('/dashboard');
