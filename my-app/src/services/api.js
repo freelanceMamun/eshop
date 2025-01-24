@@ -8,7 +8,9 @@ const api = axios.create({
 // Login Route api Fetch
 
 const Login = (email, password) => {
-  api.post('/api/user/login', { email, password });
+  const response = api.post('/api/user/login', { email, password });
+
+  return response;
 };
 
 // Register Route Api Fetch
@@ -21,6 +23,13 @@ const RegisterRoute = (name, email, password) => {
   });
 
   return response;
+};
+
+// GET Customer Data
+
+const GetCustomerData = () => {
+ const response =  api.post()
+
 };
 
 // Logout User

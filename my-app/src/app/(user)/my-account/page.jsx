@@ -23,15 +23,14 @@ const Login = () => {
     }
 
     try {
-      try {
-        const response = await LoginAPi(email, password);
-        console.log(response);
+      const response = await LoginAPi(email, password);
 
-        router.push('/dashboard');
-      } catch (error) {
-        setError({ message: error.message });
-      }
-    } catch (error) {}
+      console.log(response.data, 'Data');
+
+      // router.push('/dashboard');
+    } catch (error) {
+      setError({ message: error.message });
+    }
   };
   return (
     <div>

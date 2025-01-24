@@ -26,6 +26,20 @@ userRoute.post(
   dashboardControllers
 );
 
+// User Dashboard GET
+
+userRoute.get(
+  '/dashboard',
+  verifyToken,
+  authorizeRoles('customer'),
+  (req, response) => {
+    return response.json({
+      status: true,
+      message: 'Wel come to GET Dashboard',
+    });
+  }
+);
+
 // Protected route (Admin only)
 userRoute.post('/admin', adminControllers);
 

@@ -95,6 +95,7 @@ const loginUser = async (request, response) => {
     return response.status(200).json({
       success: true,
       message: 'User Loggin Susscesfull!',
+      payload,
     });
   } catch (error) {
     return response.status(400).json({
@@ -120,7 +121,9 @@ const forgotePassword = async (request, response) => {
 
 // customer dashboard controllers
 const dashboardControllers = async (request, response) => {
-  return response.status(200).json({ status: true, message: 'Dashboard' });
+  return response
+    .status(200)
+    .json({ status: true, message: 'Wel come to Dashboard' });
 };
 
 // ==> ========== Admin Controllers
