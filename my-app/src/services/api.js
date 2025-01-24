@@ -36,7 +36,15 @@ const GetCustomerData = () => {
 // Logout User
 
 const Logout = () => {
-  api.get('/api/user/logout');
+  return api.get('/api/user/logout');
 };
 
-export { Login, RegisterRoute, Logout };
+// Forgot Password
+
+const fogotPassword = () => {
+  const response = api('/api/user/reset-password');
+
+  return response;
+};
+
+export { Login, RegisterRoute, Logout, fogotPassword, GetCustomerData };

@@ -1,6 +1,10 @@
 import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
 const ResetPassword = () => {
+
+
+
+  
   return (
     <div>
       <BreadCum></BreadCum>
