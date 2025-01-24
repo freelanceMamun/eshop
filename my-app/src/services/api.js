@@ -28,8 +28,9 @@ const RegisterRoute = (name, email, password) => {
 // GET Customer Data
 
 const GetCustomerData = () => {
- const response =  api.post()
+  const response = api.get('/api/user/dashboard');
 
+  return response;
 };
 
 // Logout User

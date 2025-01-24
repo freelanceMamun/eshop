@@ -36,8 +36,6 @@ const verifyToken = async (req, res, next) => {
 
 function authorizeRoles(...allowedRoles) {
   return (req, res, next) => {
-    console.log(req.user);
-
     if (!req.user || !allowedRoles.includes(req.user.role)) {
       return res
         .status(403)

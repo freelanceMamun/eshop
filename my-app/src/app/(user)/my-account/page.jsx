@@ -27,7 +27,7 @@ const Login = () => {
 
       console.log(response.data, 'Data');
 
-      // router.push('/dashboard');
+      router.push('/dashboard');
     } catch (error) {
       setError({ message: error.message });
     }
