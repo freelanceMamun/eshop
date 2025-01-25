@@ -21,7 +21,7 @@ const createUser = async (request, response) => {
         .json({ success: false, message: 'User already Exists' });
     }
 
-    // Password encrypt hashed
+    // Password encrypt hashed--
 
     const encryptPassword = await becrypt.hash(password, 10);
 
