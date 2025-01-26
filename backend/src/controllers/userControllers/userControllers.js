@@ -118,11 +118,16 @@ const forgotePassword = async (request, response) => {
     }
 
     const findUser = await USER.findOne({ email });
-     
 
-    /// Generate 
-    
+    if (findUser) {
+     const updatePassword =  USER.updateOne({ ...findUser, password: '324315612' });
 
+     await updatePassword.save()
+    }
+
+    console.log(findUser);
+
+    /// Generate
   } catch (error) {}
 };
 

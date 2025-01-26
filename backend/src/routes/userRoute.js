@@ -6,6 +6,7 @@ import {
   dashboardControllers,
   loginUser,
   adminControllers,
+  forgotePassword,
 } from '../controllers/userControllers/userControllers.js';
 import {
   verifyToken,
@@ -51,12 +52,7 @@ userRoute.get(
 
 // Forgate Password user
 
-userRoute.post('/reset-password', (req, res) => {
-  return res.status(200).json({
-    status: true,
-    message: 'Forgate password',
-  });
-});
+userRoute.post('/reset-password', forgotePassword);
 
 // logout controllers
 
