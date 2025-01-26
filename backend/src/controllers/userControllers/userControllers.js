@@ -119,16 +119,22 @@ const forgotePassword = async (request, response) => {
 
     const findUser = await USER.findOne({ email });
 
-    const updatePasswordData = {
-      password: 852369,
-    };
-    if (findUser) {
-      await USER.findOneAndUpdate({ email }, updatePasswordData, {
-        returnOriginal: false,
-      });
+    if (!findUser) {
+      return response
+        .status(404)
+        .json({ message: 'User Not Found Please Login Now!', status: false });
     }
 
-    console.log(findUser);
+    // const updatePasswordData = {
+    //   password: 852369,
+    // };
+    // if (findUser) {
+    //   await USER.findOneAndUpdate({ email }, updatePasswordData, {
+    //     returnOriginal: false,
+    //   });
+    // }
+
+    // console.log(findUser);
 
     return response.json({ message: 'password update', status: true });
     /// Generate
