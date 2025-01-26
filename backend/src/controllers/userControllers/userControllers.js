@@ -107,7 +107,7 @@ const loginUser = async (request, response) => {
 
 // Fogote Password
 const forgotePassword = async (request, response) => {
-  const { email, password } = request.body;
+  const { email } = request.body;
 
   try {
     if (!email && !password) {
@@ -116,6 +116,13 @@ const forgotePassword = async (request, response) => {
         message: 'Please required the feild!',
       });
     }
+
+    const findUser = await USER.findOne({ email });
+     
+
+    /// Generate 
+    
+
   } catch (error) {}
 };
 
