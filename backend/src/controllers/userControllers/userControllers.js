@@ -119,16 +119,22 @@ const forgotePassword = async (request, response) => {
 
     const findUser = await USER.findOne({ email });
 
+    const updatePasswordData = {
+      password: 852369,
+    };
     if (findUser) {
-     const updatePassword =  USER.updateOne({ ...findUser, password: '324315612' });
-
-     await updatePassword.save()
+      await USER.findOneAndUpdate({ email }, updatePasswordData, {
+        returnOriginal: false,
+      });
     }
 
     console.log(findUser);
 
+    return response.json({ message: 'password update', status: true });
     /// Generate
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // customer dashboard controllers
