@@ -117,8 +117,7 @@ const forgotePassword = async (request, response) => {
       });
     }
 
-    const findUser = await USER.findOne({ email });
-
+  
     if (!findUser) {
       return response
         .status(404)
