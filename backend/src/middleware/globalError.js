@@ -18,7 +18,7 @@ const forgotPasswordMiddleware = async (req, res, next) => {
     }
 
     next();
-  }                                                                                                                                                                                                                 catch (error) {}
+  } catch (error) {}
 };
 
 export default GlobalError;
