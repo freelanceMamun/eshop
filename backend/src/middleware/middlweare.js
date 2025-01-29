@@ -13,7 +13,8 @@ const forgotPasswordMiddleware = async (req, response, next) => {
         .status(404)
         .json({ message: 'User Not Found Please Login Now!', status: false });
     }
-
+    
+    
     next();
   } catch (error) {
     return response.status(404).json({ message: error.message, status: false });

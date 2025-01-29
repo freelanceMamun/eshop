@@ -5,7 +5,7 @@ const protectedRoutes = ['/dashboard'];
 
 export function middleware(req) {
   const token = req.cookies.get('webnuxtauth'); // Read the token from cookies
-
+  const params = req.params;
   // Check if the route is protected
   if (protectedRoutes.some((route) => req.nextUrl.pathname.startsWith(route))) {
     // If token is missing or invalid, redirect to login page
@@ -24,11 +24,13 @@ export function middleware(req) {
     }
   }
 
+  console.log(params);
+
   // Allow the request to proceed
   return NextResponse.next();
 }
 
 // Specify the routes the middleware should match
 export const config = {
-  matcher: ['/dashboard/:path*'], // Matches `/dashboard` and all sub-paths
+  matcher: ['/dashboard/:path*', '/reset-password/email/:path'], // Matches `/dashboard` and all sub-paths
 };

@@ -117,6 +117,8 @@ const forgotePassword = async (request, response) => {
       });
     }
 
+
+    
     // const updatePasswordData = {
     //   password: 852369,
     // };
@@ -127,6 +129,9 @@ const forgotePassword = async (request, response) => {
     // }
 
     // console.log(findUser);
+
+
+
 
     return response.json({ message: 'password update', status: true });
     /// Generate
