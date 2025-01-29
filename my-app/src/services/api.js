@@ -41,10 +41,12 @@ const Logout = () => {
 
 // Forgot Password
 
-const fogotPassword = () => {
-  const response = api('/api/user/reset-password');
+const forgotPassword = (email) => {
+  const response = api.post('/api/user/reset-password', {
+    email,
+  });
 
   return response;
 };
 
-export { Login, RegisterRoute, Logout, fogotPassword, GetCustomerData };
+export { Login, RegisterRoute, Logout, forgotPassword, GetCustomerData };

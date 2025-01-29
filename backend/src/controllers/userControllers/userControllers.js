@@ -107,18 +107,7 @@ const loginUser = async (request, response) => {
 
 // Fogote Password
 const forgotePassword = async (request, response) => {
-  const { email } = request.body;
-
   try {
-    if (!email) {
-      return response.status(500).json({
-        status: false,
-        message: 'Please required the feild!',
-      });
-    }
-
-
-    
     // const updatePasswordData = {
     //   password: 852369,
     // };
@@ -130,10 +119,11 @@ const forgotePassword = async (request, response) => {
 
     // console.log(findUser);
 
-
-
-
-    return response.json({ message: 'password update', status: true });
+    return response.json({
+      message: 'password update',
+      status: true,
+      user: request.UserFind,
+    });
     /// Generate
   } catch (error) {
     console.log(error);

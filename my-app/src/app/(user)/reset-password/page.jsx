@@ -2,24 +2,33 @@
 
 import React, { useState } from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
+import { forgotPassword } from '@/services/api';
+
+import { ToastContainer, toast } from 'react-toastify';
 
 import { useRouter } from 'next/navigation';
-
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handelClick = (e) => {
+  const handelClick = async (e) => {
     e.preventDefault();
     if (!email) {
       return;
-    } else {
-      router.push('reset-password/email');
+    }
+
+    try {
+      const response = await forgotPassword(email);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <BreadCum></BreadCum>
       <div className="flex items-center justify-center">
         <div className="max-w-xl w-2/12 pt-10">
