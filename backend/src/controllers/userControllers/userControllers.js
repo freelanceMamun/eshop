@@ -110,18 +110,11 @@ const forgotePassword = async (request, response) => {
   const { email } = request.body;
 
   try {
-    if (!email && !password) {
+    if (!email) {
       return response.status(500).json({
         status: false,
         message: 'Please required the feild!',
       });
-    }
-
-  
-    if (!findUser) {
-      return response
-        .status(404)
-        .json({ message: 'User Not Found Please Login Now!', status: false });
     }
 
     // const updatePasswordData = {

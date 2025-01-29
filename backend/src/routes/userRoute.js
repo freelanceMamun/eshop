@@ -13,6 +13,7 @@ import {
   authorizeRoles,
   verifyAdminToken,
 } from '../auth/AuthVerifiy.js';
+import { forgotPasswordMiddleware } from '../middleware/middlweare.js';
 // create user;
 userRoute.post('/create-user', createUser);
 
@@ -52,7 +53,7 @@ userRoute.get(
 
 // Forgate Password user
 
-userRoute.post('/reset-password', forgotePassword);
+userRoute.post('/reset-password', forgotPasswordMiddleware, forgotePassword);
 
 // logout controllers
 

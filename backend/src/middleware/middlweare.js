@@ -1,6 +1,8 @@
+import USER from '../models/users/users.model.js';
+
 // Forgot password Middleware
 
-const forgotPasswordMiddleware = async (req, res, next) => {
+const forgotPasswordMiddleware = async (req, response, next) => {
   const { email } = req.body;
 
   try {
@@ -13,5 +15,9 @@ const forgotPasswordMiddleware = async (req, res, next) => {
     }
 
     next();
-  } catch (error) {}
+  } catch (error) {
+    return response.status(404).json({ message: error.message, status: false });
+  }
 };
+
+export { forgotPasswordMiddleware };
