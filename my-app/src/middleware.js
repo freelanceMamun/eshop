@@ -32,5 +32,5 @@ export function middleware(req) {
 
 // Specify the routes the middleware should match
 export const config = {
-  matcher: ['/dashboard/:path*', '/reset-password/email/:path'], // Matches `/dashboard` and all sub-paths
+  matcher: ['/dashboard/:path*'], // Matches `/dashboard` and all sub-paths
 };

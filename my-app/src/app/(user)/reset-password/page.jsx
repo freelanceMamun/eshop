@@ -1,10 +1,23 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
+
+import { useRouter } from 'next/navigation';
+
 const ResetPassword = () => {
+  const [email, setEmail] = useState('');
+  const router = useRouter();
 
+  const handelClick = (e) => {
+    e.preventDefault();
+    if (!email) {
+      return;
+    } else {
+      router.push('reset-password/email');
+    }
+  };
 
-
-  
   return (
     <div>
       <BreadCum></BreadCum>
@@ -14,7 +27,7 @@ const ResetPassword = () => {
             Reset Password
           </h4>
           <div className="mt-10 pb-24">
-            <form action="">
+            <form onClick={handelClick}>
               <div className="flex flex-col mb-2 mt-4">
                 <label
                   className="text-[11px]  mb-1 uppercase font-semibold tracking-widest text-[#303030]"
@@ -26,6 +39,8 @@ const ResetPassword = () => {
                   className="border py-[5px] outline-0 px-2 w-full"
                   type="text"
                   name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
