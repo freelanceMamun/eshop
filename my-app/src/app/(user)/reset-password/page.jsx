@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
 import { forgotPassword } from '@/services/api';
+import { LuLoader } from 'react-icons/lu';
 
 import { ToastContainer, toast } from 'react-toastify';
 
 import { useRouter } from 'next/navigation';
+import { FaS } from 'react-icons/fa6';
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,8 +23,15 @@ const ResetPassword = () => {
     try {
       const response = await forgotPassword(email);
 
+      const { data } = response;
+      console.log(data.user);
+
       if (response.status === 200) {
         setLoading(false);
+
+        router.push(
+          `/reset-password/email?id=${data.user.id}&name=${data.user.name}`
+        );
       }
     } catch (error) {
       console.log(error);
@@ -57,8 +66,12 @@ const ResetPassword = () => {
               </div>
 
               <div className=" mb-2 mt-4">
-                <button className=" bg-black uppercase text-white w-full text-[11px] tracking-widest py-3">
-                  Send Now
+                <button className=" flex items-center justify-center gap-2 bg-black uppercase text-white w-full text-[11px] tracking-widest py-3">
+                  {loading ? (
+                    <LuLoader className="size-5 transition-all duration-300 animate-spin" />
+                  ) : (
+                    'Send Now'
+                  )}
                 </button>
               </div>
             </form>

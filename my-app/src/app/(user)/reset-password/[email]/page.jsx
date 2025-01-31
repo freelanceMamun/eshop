@@ -6,7 +6,7 @@ const setUpPassword = () => {
   const searchParams = useSearchParams();
 
   console.log(searchParams.get('id'));
-  console.log(searchParams.get('token'));
+  console.log(searchParams.get('name'));
 
   return (
     <div>
