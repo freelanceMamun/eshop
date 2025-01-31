@@ -10,6 +10,12 @@ const setUpPassword = () => {
   const handelSavePassword = () => {
     if (!password || !updatePssword) {
       console.log('Please Filap the input feild!');
+
+      return;
+    }
+    // Match Password
+
+    if (password === updatePssword) {
     }
   };
 
