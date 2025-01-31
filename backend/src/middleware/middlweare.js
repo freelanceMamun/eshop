@@ -33,12 +33,12 @@ const forgotPasswordMiddleware = async (req, response, next) => {
       Token,
     };
 
-    req.UserFind = user;
-    await res.cookie('resetp', Token, {
+    await response.cookie('resetp', Token, {
       httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
       secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
       maxAge: 120000, // 1 hour in milliseconds
     });
+    req.UserFind = user;
 
     next();
   } catch (error) {

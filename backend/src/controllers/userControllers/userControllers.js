@@ -117,8 +117,6 @@ const forgotePassword = async (request, response) => {
     //   });
     // }
 
-    console.log(findUser);
-
     /// Token Verify in Reset Password
 
     return response.json({
