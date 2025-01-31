@@ -7,8 +7,7 @@ const setUpPassword = () => {
   const [updatePssword, setUpdatepassword] = useState('');
   const searchParams = useSearchParams();
 
-  console.log(searchParams.get('id'));
-  console.log(searchParams.get('name'));
+  const handelSavePassword = () => {};
 
   return (
     <div>
@@ -31,6 +30,7 @@ const setUpPassword = () => {
                   type="password"
                   name="password"
                   value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="flex flex-col mb-2 mt-4">
@@ -45,6 +45,7 @@ const setUpPassword = () => {
                   type="password"
                   name="password"
                   value={updatePssword}
+                  onChange={(e) => setUpPassword(e.target.value)}
                 />
               </div>
 
