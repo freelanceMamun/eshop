@@ -32,7 +32,7 @@ export function middleware(req) {
   // Check Token in Reset Passoword  redriret in Reset password page ;
   if (!resToken) {
     const redirectURL = new URL('/reset-password', req.url);
-    return NextResponse.redirect(redirectURL);
+    //  return NextResponse.redirect(redirectURL);
   }
 
   // Allow the request to proceed
