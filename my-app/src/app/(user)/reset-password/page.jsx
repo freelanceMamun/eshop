@@ -30,7 +30,7 @@ const ResetPassword = () => {
         setLoading(false);
 
         router.push(
-          `/reset-password/email?id=${data.user.id}&name=${data.user.name}`
+          `/reset-password/email?id=${data.user.Token}&name=${data.user.name}`
         );
       }
     } catch (error) {

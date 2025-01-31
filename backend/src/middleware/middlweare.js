@@ -1,5 +1,7 @@
 import USER from '../models/users/users.model.js';
 
+import JWT from 'jsonwebtoken';
+
 // Forgot password Middleware
 
 const forgotPasswordMiddleware = async (req, response, next) => {
@@ -21,10 +23,16 @@ const forgotPasswordMiddleware = async (req, response, next) => {
         .json({ message: 'User Not Found Please Login Now!', status: false });
     }
 
+    const Token = JWT.sign({ id: findUser._id }, process.env.jWT_SECRETEkEY, {
+      expiresIn: '1m',
+    });
+
     const user = {
       name: findUser.name,
       id: findUser._id,
+      Token,
     };
+
     req.UserFind = user;
 
     next();
