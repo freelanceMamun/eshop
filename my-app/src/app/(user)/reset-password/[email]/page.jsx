@@ -7,10 +7,11 @@ const setUpPassword = () => {
   const [updatePssword, setUpdatepassword] = useState('');
   const searchParams = useSearchParams();
 
+  console.log(searchParams.get('id'));
+
   const handelSavePassword = () => {
     if (!password || !updatePssword) {
       console.log('Please Filap the input feild!');
-
       return;
     }
     // Match Password

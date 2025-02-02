@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import becrypt from 'bcrypt';
 import { genetateToken, genetateTokenAdmin } from '../../auth/AuthVerifiy.js';
 
+import JWT from 'jsonwebtoken';
+
 const createUser = async (request, response) => {
   try {
     const { name, email, password, role } = request.body;
@@ -108,6 +110,7 @@ const loginUser = async (request, response) => {
 // Fogote Password
 const forgotePassword = async (request, response) => {
   try {
+    const { password } = request.body;
     // const updatePasswordData = {
     //   password: 852369,
     // };
@@ -118,6 +121,14 @@ const forgotePassword = async (request, response) => {
     // }
 
     /// Token Verify in Reset Password
+    const responseUser = JWT.verify(
+      request.UserFind.Token,
+      process.env.jWT_SECRETEkEY,
+      (err, user) => {
+        if (err) res.status(403).json('token is not valid');
+        return user;
+      }
+    );
 
     return response.json({
       message: 'password update',
@@ -129,6 +140,10 @@ const forgotePassword = async (request, response) => {
     console.log(error);
   }
 };
+
+// ForgotPassword save
+
+const forgoteSavePassword = async (request, response) => {};
 
 // customer dashboard controllers
 const dashboardControllers = async (request, response) => {
@@ -195,4 +210,5 @@ export {
   forgotePassword,
   adminControllers,
   dashboardControllers,
+  forgoteSavePassword,
 };

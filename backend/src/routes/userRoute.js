@@ -7,6 +7,7 @@ import {
   loginUser,
   adminControllers,
   forgotePassword,
+  forgoteSavePassword,
 } from '../controllers/userControllers/userControllers.js';
 import {
   verifyToken,
@@ -54,6 +55,8 @@ userRoute.get(
 // Forgate Password user
 
 userRoute.post('/reset-password', forgotPasswordMiddleware, forgotePassword);
+
+userRoute.post('/reset-password/email', forgoteSavePassword);
 
 // logout controllers
 
