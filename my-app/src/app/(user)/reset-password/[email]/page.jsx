@@ -27,7 +27,7 @@ const setUpPassword = () => {
             Update Password
           </h4>
           <div className="mt-10 pb-24">
-            <form>
+            <form onSubmit={handelSavePassword}>
               <div className="flex flex-col mb-2 mt-4">
                 <label
                   className="text-[11px]  mb-1 uppercase font-semibold tracking-widest text-[#303030]"
