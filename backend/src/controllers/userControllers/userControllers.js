@@ -111,27 +111,8 @@ const loginUser = async (request, response) => {
 const forgotePassword = async (request, response) => {
   try {
     const { password } = request.body;
-    // const updatePasswordData = {
-    //   password: 852369,
-    // };
-    // if (findUser) {
-    //   await USER.findOneAndUpdate({ email }, updatePasswordData, {
-    //     returnOriginal: false,
-    //   });
-    // }
-
-    /// Token Verify in Reset Password
-    const responseUser = JWT.verify(
-      request.UserFind.Token,
-      process.env.jWT_SECRETEkEY,
-      (err, user) => {
-        if (err) res.status(403).json('token is not valid');
-        return user;
-      }
-    );
 
     return response.json({
-      message: 'password update',
       status: true,
       user: request.UserFind,
     });
@@ -143,7 +124,39 @@ const forgotePassword = async (request, response) => {
 
 // ForgotPassword save
 
-const forgoteSavePassword = async (request, response) => {};
+const forgoteSavePassword = async (request, response) => {
+  const { authorization } = request.headers;
+  // const updatePasswordData = {
+  //   password: 852369,
+  // };
+  // if (findUser) {
+  //   await USER.findOneAndUpdate({ email }, updatePasswordData, {
+  //     returnOriginal: false,
+  //   });
+  // }
+
+  // Token Verify in Reset Password
+  const responseUser = await JWT.verify(
+    authorization.split(' ')[1],
+    process.env.jWT_SECRETEkEY,
+    (err, user) => {
+      if (err) response.status(403).json('token is not valid');
+      return user;
+    }
+  );
+
+  // if response is true then password hasbeen saved 
+
+  if(responseUser){
+    
+  }
+
+
+
+  console.log(authorization.split(' ')[1]);
+
+  console.log(responseUser);
+};
 
 // customer dashboard controllers
 const dashboardControllers = async (request, response) => {
