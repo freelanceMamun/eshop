@@ -24,15 +24,15 @@ const BannerSlider = () => {
           return (
             <div className="w-full" key={index}>
               <div className="flex w-full">
-                <div className="w-1/3">
+                <div className="xl:w-1/3 lg:w-1/2">
                   <div className="w-full h-full flex items-center justify-center flex-col">
                     <div className="px-14">
-                      <div className=" pb-8">
-                        <h1 className="text-[64px] text-black tracking-tighter font-medium leading-[66px] ">
+                      <div className=" lg:pb-8 xl:pb-4">
+                        <h1 className="xl:text-[64px] lg:text-[48px] text-black tracking-tighter font-medium leading-[66px] ">
                           New Spring Collection 2025
                         </h1>
                       </div>
-                      <div className="pb-8">
+                      <div className="xl:pb-8 lg:pb-4">
                         <p className="text-[12px] font-normal">
                           Introducing the new fashion summer collection,
                           featuring bold and bright colors, playful prints, and
@@ -50,7 +50,7 @@ const BannerSlider = () => {
                     </div>
                   </div>
                 </div>
-                <div className="w-4/6">
+                <div className="xl:w-4/6 lg:w-1/2">
                   <Image
                     className="w-full"
                     unoptimized={true}
