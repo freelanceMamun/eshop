@@ -126,6 +126,7 @@ const forgotePassword = async (request, response) => {
 
 const forgoteSavePassword = async (request, response) => {
   const { authorization } = request.headers;
+  const { password } = request.body;
   // const updatePasswordData = {
   //   password: 852369,
   // };
@@ -145,13 +146,11 @@ const forgoteSavePassword = async (request, response) => {
     }
   );
 
-  // if response is true then password hasbeen saved 
+  // if response is true then password hasbeen saved
 
-  if(responseUser){
-    
+  if (responseUser) {
+    await USER.findOneAndUpdate({id})
   }
-
-
 
   console.log(authorization.split(' ')[1]);
 
