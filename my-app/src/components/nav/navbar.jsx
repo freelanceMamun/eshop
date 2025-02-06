@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="">
       <div className="container max-w-full px-6 py-4 flex items-center justify-between">
         {/* Offer Section */}
-        <div className="text-[11px] font-medium text-[#070707]">
+        <div className="text-[11px] font-medium md:block lg:block  hidden justify-center text-[#070707]">
           <p>
             <a className="font-medium uppercase tracking-widest" href="#">
               Best special offers! 40% Off!
@@ -27,17 +27,17 @@ const Navbar = () => {
         {/* === Brand Logo End */}
         {/* Control section */}
         <div className="flex items-center gap-4">
-          <div>
+          <div className=" hidden lg:block">
             <a className="text-xl font-normal" href="#" title="Login">
               <BiUser></BiUser>
             </a>
           </div>
-          <div>
+          <div className=" hidden lg:block">
             <a href="#" className="text-xl font-normal" title="Search">
               <BiSearch></BiSearch>
             </a>
           </div>
-          <div>
+          <div className=" hidden lg:block">
             <a href="#" className="text-xl font-normal" title="Wishlist">
               <BiHeart></BiHeart>
             </a>
