@@ -67,7 +67,7 @@ export default function Home() {
 
       <div className="py-12 lg:px-16">
         <div className="text-center">
-          <p className="text-5xl">
+          <p className="xl:text-5xl md:text-3xl text-2xl">
             We believe that every human deserves to feel beautiful and
             confident, and we are committed to providing you with the best
             quality and styles that will make you look and feel your best.

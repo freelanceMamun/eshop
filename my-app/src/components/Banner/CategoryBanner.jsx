@@ -5,8 +5,8 @@ const CategoryBanner = () => {
   return (
     <div className=" py-10">
       <div>
-        <div className=" grid grid-cols-4">
-          <div className="border h-[650px] border-black border-r-0">
+        <div className=" grid grid-cols-2 xl:grid-cols-4">
+          <div className="border xl:h-[650px] border-black border-r-0">
             <div
               className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
             after:opacity-0 hover:after:opacity-80"
@@ -26,7 +26,7 @@ const CategoryBanner = () => {
               </div>
             </div>
           </div>
-          <div className="border h-[650px] border-black border-r-0">
+          <div className="border xl:h-[650px] border-black border-r-0">
             <div
               className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
             after:opacity-0 hover:after:opacity-80"
@@ -46,7 +46,7 @@ const CategoryBanner = () => {
               </div>
             </div>
           </div>
-          <div className="border h-[650px] border-black border-r-0">
+          <div className="border xl:h-[650px] border-black border-r-0">
             <div
               className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
             after:opacity-0 hover:after:opacity-80"
@@ -67,7 +67,7 @@ const CategoryBanner = () => {
             </div>
           </div>
 
-          <div className="border h-[650px] border-black border-r-0">
+          <div className="border xl:h-[650px] border-black border-r-0">
             <div
               className="h-full  relative after:transition after:duration-300 after:absolute after:bg-white after:w-full after:h-full after:top-0 after:left-0  
             after:opacity-0 hover:after:opacity-80"
