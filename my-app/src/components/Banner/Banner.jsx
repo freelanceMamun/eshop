@@ -3,7 +3,7 @@ import bannerImage from '@/asset/moderno-2726173801-960x600.jpg';
 const Banner = () => {
   return (
     <div className="py-10">
-      <div className="grid grid-cols-3">
+      <div className="grid xl:grid-cols-3 lg:grid-cols-3 grid-cols-2">
         <div className="">
           <div
             className="border after:bg-black after:top-0 after:left-0 after:w-full after:h-full after:opacity-40  
@@ -14,7 +14,7 @@ const Banner = () => {
           >
             <p className="text-center z-[2] relative text-white">NEW</p>
             <div className="">
-              <h4 className="text-white relative w-10/12 text-center m-auto text-4xl font-semibold  z-[2] ">
+              <h4 className="text-white relative w-10/12 text-center m-auto xl:text-4xl font-semibold  z-[2] ">
                 Grand Premium Suites
               </h4>
             </div>
@@ -35,7 +35,7 @@ const Banner = () => {
           >
             <p className="text-center z-[2] relative text-white">NEW</p>
             <div className="">
-              <h4 className="text-white relative w-10/12 text-center m-auto text-4xl font-semibold  z-[2] ">
+              <h4 className="text-white relative w-10/12 text-center m-auto xl:text-4xl font-semibold  z-[2] ">
                 Grand Premium Suites
               </h4>
             </div>
@@ -56,7 +56,7 @@ const Banner = () => {
           >
             <p className="text-center z-[2] relative text-white">NEW</p>
             <div className="">
-              <h4 className="text-white relative w-10/12 text-center m-auto text-4xl font-semibold  z-[2] ">
+              <h4 className="text-white relative w-10/12 text-center m-auto xl:text-4xl font-semibold  z-[2] ">
                 Grand Premium Suites
               </h4>
             </div>
