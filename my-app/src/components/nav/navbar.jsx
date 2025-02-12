@@ -3,6 +3,9 @@ import React from 'react';
 import { BiUser } from 'react-icons/bi';
 import { BiSearch } from 'react-icons/bi';
 import { BiHeart, BiShoppingBag } from 'react-icons/bi';
+
+import { CiMenuBurger } from 'react-icons/ci';
+
 import MenuBar from './menubar';
 const Navbar = () => {
   return (
@@ -16,10 +19,16 @@ const Navbar = () => {
             </a>
           </p>
         </div>
+
+        <div className="menu-btn block lg:hidden ">
+          <a href="#">
+            <CiMenuBurger className=" size-6" />
+          </a>
+        </div>
         {/* === Brand Lodo */}
         <div className="brand-logo">
           <div className="font-bold">
-            <h2 className="uppercase text-2xl">
+            <h2 className="uppercase xl:text-2xl text-xl">
               <a href="/">Webnuxt Shop</a>
             </h2>
           </div>
@@ -44,7 +53,7 @@ const Navbar = () => {
           </div>
           <div>
             <a href="#" className="text-xl font-normal" title="">
-              <BiShoppingBag></BiShoppingBag>
+              <BiShoppingBag className="xl:size-6 size-8"></BiShoppingBag>
             </a>
           </div>
         </div>
