@@ -5,7 +5,7 @@ import MegaMenu from './meganenu';
 
 const MenuBar = () => {
   return (
-    <div>
+    <div className=" hidden xl:block">
       <div className=" relative py-4 border-t border-[#000] border-b border-b-[#ddd] ">
         <ul className="flex items-center justify-center gap-7">
           <li className=" uppercase text-[12px] text-[#020202] cursor-pointer font-semibold tracking-widest ">

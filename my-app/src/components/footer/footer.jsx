@@ -11,8 +11,8 @@ import paymentImg from '@/asset/ricky-2152262473.webp';
 const Footer = () => {
   return (
     <div className="bg-[#070707]">
-      <div className="px-20 py-20">
-        <div className="grid grid-cols-3">
+      <div className="xl:px-20 x:py-20 px-5 py-10">
+        <div className="grid xl:grid-cols-3">
           <div className="w-[70%]">
             <p className="text-white uppercase text-[13px] tracking-widest">
               Sign up to get 10% off your first order and stay up to date on the
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="pt-10">
-          <div className="grid grid-cols-3">
+          <div className="grid xl:grid-cols-3">
             <div>
               <Image
                 quality={100}
@@ -138,22 +138,34 @@ const Footer = () => {
               <div>
                 <ul className="flex items-center">
                   <li className="text-white">
-                    <a href="#" className="border border-[#333] text-[18px] p-3 block">
+                    <a
+                      href="#"
+                      className="border border-[#333] text-[18px] p-3 block"
+                    >
                       <BiLogoFacebook></BiLogoFacebook>
                     </a>
                   </li>
                   <li className="text-white">
-                    <a href="#" className="border border-[#333] text-[18px] p-3 block">
+                    <a
+                      href="#"
+                      className="border border-[#333] text-[18px] p-3 block"
+                    >
                       <BiLogoInstagramAlt></BiLogoInstagramAlt>
                     </a>
                   </li>
                   <li className="text-white">
-                    <a href="#" className="border border-[#333] text-[18px] p-3 block">
+                    <a
+                      href="#"
+                      className="border border-[#333] text-[18px] p-3 block"
+                    >
                       <BiLogoTwitter></BiLogoTwitter>
                     </a>
                   </li>
                   <li className="text-white">
-                    <a href="#" className="border border-[#333] text-[18px] p-3 block">
+                    <a
+                      href="#"
+                      className="border border-[#333] text-[18px] p-3 block"
+                    >
                       <BiLogoYoutube></BiLogoYoutube>
                     </a>
                   </li>
