@@ -26,9 +26,12 @@ const BannerSlider = () => {
               <div className="flex w-full flex-col-reverse md:flex-row">
                 <div className="xl:w-1/3 lg:w-1/2">
                   <div className="w-full h-full flex md:pb-0 pb-10 items-center justify-center flex-col">
-                    <div className="lg:px-14 md:px-8 px-4">
-                      <div className=" lg:pb-8 xl:pb-4">
-                        <h1 className="xl:text-[64px] text-[44px] lg:text-[48px] text-black tracking-tighter font-medium leading-[66px] ">
+                    <div className="lg:px-14 md:px-8 px-4 py-5">
+                      <div className=" lg:pb-8 xl:pb-4 pb-4 ">
+                        <h1
+                          className="xl:text-[64px] text-[44px] font-medium lg:text-[48px] md:leading-[74px] leading-[54px]
+                         text-black tracking-wider"
+                        >
                           New Spring Collection 2025
                         </h1>
                       </div>
