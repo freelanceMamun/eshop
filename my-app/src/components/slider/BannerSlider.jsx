@@ -23,16 +23,16 @@ const BannerSlider = () => {
         {SliderData.map((item, index) => {
           return (
             <div className="w-full" key={index}>
-              <div className="flex w-full flex-col-reverse">
+              <div className="flex w-full flex-col-reverse md:flex-row">
                 <div className="xl:w-1/3 lg:w-1/2">
-                  <div className="w-full h-full flex items-center justify-center flex-col">
-                    <div className="px-14">
+                  <div className="w-full h-full flex md:pb-0 pb-10 items-center justify-center flex-col">
+                    <div className="lg:px-14 md:px-8 px-4">
                       <div className=" lg:pb-8 xl:pb-4">
-                        <h1 className="xl:text-[64px] lg:text-[48px] text-black tracking-tighter font-medium leading-[66px] ">
+                        <h1 className="xl:text-[64px] text-[44px] lg:text-[48px] text-black tracking-tighter font-medium leading-[66px] ">
                           New Spring Collection 2025
                         </h1>
                       </div>
-                      <div className="xl:pb-8 lg:pb-4">
+                      <div className="xl:pb-8 lg:pb-4 pb-3">
                         <p className="text-[12px] font-normal">
                           Introducing the new fashion summer collection,
                           featuring bold and bright colors, playful prints, and
