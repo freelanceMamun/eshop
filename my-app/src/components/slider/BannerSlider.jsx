@@ -23,7 +23,7 @@ const BannerSlider = () => {
         {SliderData.map((item, index) => {
           return (
             <div className="w-full" key={index}>
-              <div className="flex w-full">
+              <div className="flex w-full flex-col-reverse">
                 <div className="xl:w-1/3 lg:w-1/2">
                   <div className="w-full h-full flex items-center justify-center flex-col">
                     <div className="px-14">
