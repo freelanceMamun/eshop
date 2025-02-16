@@ -4,6 +4,7 @@ import Card from '@/components/Card/Card';
 import QuickViewModal from '@/components/modal/QuickViewModal';
 import Banner from '@/components/Banner/Banner';
 import CategoryBanner from '@/components/Banner/CategoryBanner';
+import Testimonials from '@/components/testimonials/testimonials';
 
 export default function Home() {
   return (
@@ -76,7 +77,8 @@ export default function Home() {
       </div>
 
       <CategoryBanner></CategoryBanner>
-
+      {/* Testimonials */}
+      <Testimonials />
       <MarqueText></MarqueText>
     </main>
   );
