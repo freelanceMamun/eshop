@@ -11,14 +11,14 @@ const Testimonials = () => {
   var settings = {
     centerMode: true,
     slidesToShow: 3,
+
     responsive: [
       {
         breakpoint: 768,
         settings: {
           arrows: false,
           centerMode: true,
-
-          slidesToShow: 3,
+          slidesToShow: 1,
         },
       },
       {
@@ -35,7 +35,7 @@ const Testimonials = () => {
   return (
     <div className="px-4 py-4 overflow-hidden">
       <Slider {...settings}>
-        <div className="border py-20 px-16 border-black">
+        <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
             <div className="rounded-full overflow-hidden w-24 h-24">
               <img src={pictures.src} className="w-full h-full" alt="profile" />
@@ -49,7 +49,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="border py-20 px-16 border-black">
+        <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
             <div className="rounded-full overflow-hidden w-24 h-24">
               <img src={pictures.src} className="w-full h-full" alt="profile" />
@@ -63,7 +63,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="border py-20 px-16 border-black">
+        <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
             <div className="rounded-full overflow-hidden w-24 h-24">
               <img src={pictures.src} className="w-full h-full" alt="profile" />
@@ -77,7 +77,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="border py-20 px-16 border-black">
+        <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
             <div className="rounded-full overflow-hidden w-24 h-24">
               <img src={pictures.src} className="w-full h-full" alt="profile" />
@@ -91,7 +91,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <div className="border py-20 px-16 border-black">
+        <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
             <div className="rounded-full overflow-hidden w-24 h-24">
               <img src={pictures.src} className="w-full h-full" alt="profile" />

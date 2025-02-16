@@ -63,6 +63,26 @@ body {
 .Toastify__progress-bar--error {
   @apply bg-transparent;
 }
+
+/* .slick-slide {
+  width: 770px !important;
+} */
+
+.testimonials {
+  border-color: #fff;
+  transition: all 0.5s ease-in;
+}
+
+.slick-list {
+  padding: 0 0px !important;
+}
+.slick-active {
+  margin-right: 60px;
+}
+.slick-active.slick-current .testimonials {
+  @apply border border-black;
+}
+
 @keyframes Marque {
   0% {
     transform: translateX(0);
