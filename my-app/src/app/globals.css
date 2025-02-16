@@ -75,6 +75,7 @@ body {
 
 .slick-list {
   padding: 0 0px !important;
+  height: 300px;
 }
 .slick-active {
   margin-right: 60px;

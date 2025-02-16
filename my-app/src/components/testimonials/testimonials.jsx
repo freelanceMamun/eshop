@@ -11,7 +11,7 @@ const Testimonials = () => {
   var settings = {
     centerMode: true,
     slidesToShow: 3,
-
+    arrows: true,
     responsive: [
       {
         breakpoint: 768,
