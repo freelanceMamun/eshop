@@ -6,15 +6,19 @@ import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { MdOutlineArrowForwardIos } from 'react-icons/md';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'red' }}
+      className={` w-8 h-8 flex rounded-full items-center justify-center text-white border border-black bg-black`}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
-    />
+    >
+      <MdOutlineArrowBackIosNew></MdOutlineArrowBackIosNew>
+    </div>
   );
 }
 
@@ -23,9 +27,11 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'green' }}
+      style={{ ...style, display: 'block' }}
       onClick={onClick}
-    />
+    >
+      <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
+    </div>
   );
 }
 
