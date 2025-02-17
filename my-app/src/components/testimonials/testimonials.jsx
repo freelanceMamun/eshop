@@ -13,12 +13,10 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={` w-8 h-8 flex rounded-full items-center justify-center text-white border border-black bg-black`}
+      className={`${className}`}
       style={{ ...style, display: 'block' }}
       onClick={onClick}
-    >
-      <MdOutlineArrowBackIosNew></MdOutlineArrowBackIosNew>
-    </div>
+    ></div>
   );
 }
 
@@ -29,9 +27,7 @@ function SamplePrevArrow(props) {
       className={className}
       style={{ ...style, display: 'block' }}
       onClick={onClick}
-    >
-      <MdOutlineArrowForwardIos></MdOutlineArrowForwardIos>
-    </div>
+    ></div>
   );
 }
 

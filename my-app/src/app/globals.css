@@ -85,8 +85,17 @@ body {
 }
 
 .slick-next:before {
-  content: ' > ';
+  content: '>';
 }
+
+.slick-next {
+  width: 30px !important;
+  height: 30px !important;
+  border: 2px solid #0a0a0a !important;
+  color: #000000 !important;
+  border-radius: 50% !important;
+}
+
 @keyframes Marque {
   0% {
     transform: translateX(0);
