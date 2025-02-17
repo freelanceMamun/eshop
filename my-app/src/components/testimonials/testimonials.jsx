@@ -59,7 +59,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="px-4 py-4 overflow-hidden">
+    <div className="px-4 py-4 overflow-hidden testimonials_slider">
       <Slider {...settings}>
         <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">

@@ -73,7 +73,7 @@ body {
   transition: all 0.5s ease-in;
 }
 
-.slick-list {
+.testimonials_slider .slick-list {
   padding: 0 0px !important;
   height: 300px;
 }
