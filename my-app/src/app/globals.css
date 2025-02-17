@@ -77,18 +77,18 @@ body {
   padding: 0 0px !important;
   height: 300px;
 }
-.slick-active {
+.testimonials_slider .slick-active {
   margin-right: 60px;
 }
-.slick-active.slick-current .testimonials {
+.testimonials_slider .slick-active.slick-current .testimonials {
   @apply border border-black;
 }
 
-.slick-next:before {
+.testimonials_slider .slick-next:before {
   content: '>';
 }
 
-.slick-next {
+.testimonials_slider .slick-next {
   width: 30px !important;
   height: 30px !important;
   border: 2px solid #0a0a0a !important;
