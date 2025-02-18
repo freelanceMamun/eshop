@@ -1,6 +1,7 @@
 import express from 'express';
 
 const userRoute = express.Router();
+// --- Controllers
 import {
   createUser,
   dashboardControllers,
@@ -9,12 +10,18 @@ import {
   forgotePassword,
   forgoteSavePassword,
 } from '../controllers/userControllers/userControllers.js';
+
+
+// Token
+
 import {
   verifyToken,
   authorizeRoles,
   verifyAdminToken,
 } from '../auth/AuthVerifiy.js';
+
 import { forgotPasswordMiddleware } from '../middleware/middlweare.js';
+
 // create user;
 userRoute.post('/create-user', createUser);
 
