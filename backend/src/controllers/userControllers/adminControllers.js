@@ -40,7 +40,7 @@ const adminControllers = async (request, response) => {
 
     return response.status(200).json({
       success: true,
-      message: 'User Loggin Susscesfull!',
+      message: ' Admin User Logedin Susscesfull!',
     });
   } catch (error) {
     return response.status(500).json({
