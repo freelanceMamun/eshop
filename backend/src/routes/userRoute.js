@@ -47,17 +47,7 @@ userRoute.get(
   }
 );
 
-// Protected route (Admin only)
-userRoute.post('/admin', adminControllers);
 
-userRoute.get(
-  '/admin',
-  verifyAdminToken,
-  authorizeRoles('admin'),
-  (request, response) => {
-    return response.json({ message: 'welcome to admin' });
-  }
-);
 
 // Forgate Password user
 
