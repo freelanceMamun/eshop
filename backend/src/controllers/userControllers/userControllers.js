@@ -170,7 +170,7 @@ export {
   createUser,
   loginUser,
   forgotePassword,
-  adminControllers,
+  
   dashboardControllers,
   forgoteSavePassword,
 };
