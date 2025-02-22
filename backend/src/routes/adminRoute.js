@@ -9,8 +9,8 @@ admin.post('/admin', adminControllers);
 
 admin.get(
   '/admin',
-  verifyAdminToken,
-  authorizeRoles('admin'),
+  // verifyAdminToken,
+  // authorizeRoles('admin'),
   (request, response) => {
     return response.json({ message: 'welcome to admin' });
   }
