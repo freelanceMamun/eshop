@@ -14,6 +14,30 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    
+      metatitle  : {
+      type : String,
+      requireed : true, 
+      },
+
+
+
+
+
+
+
+
+      
+      metadescription : {
+        type : String,
+        required : true,
+      },
+      keyword : {
+        tpye : Array,
+        required : true,
+      }
+
+  
   },
   {
     timestamps: true,
