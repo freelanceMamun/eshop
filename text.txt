@@ -1,15 +1,21 @@
 Website Demo URL : https://parkofideas.com/moderno/demo/
 
-1st Task 
-Website All package Download,
+Backend 
+
+Customer
+
+1. Login > middleware >valid user check > 
+2. Register
+3. middleware > email verify > Forgot Password  > update password 
 
 
-add a font in Global Done;
+admin 
 
-2nd Task
+1. Login > middleware >valid user check > 
+2. middleware > email verify > Forgot Password > update password 
 
 
-Fogotpassoword > send email > OTP > response
+
 
 
 
