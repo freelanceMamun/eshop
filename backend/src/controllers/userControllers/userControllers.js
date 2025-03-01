@@ -94,6 +94,7 @@ const loginUser = async (request, response) => {
     // Genrate Token
     await genetateToken(request, response, payload);
 
+    
     return response.status(200).json({
       success: true,
       message: 'User Loggin Susscesfull!',

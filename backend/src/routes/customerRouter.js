@@ -22,6 +22,13 @@ customer.post("/reset-password", forgotePassword)
 
 customer.post("/reset-password/email" , forgoteSavePassword)
 
+// User Profile
+
+customer.post("/profile",(request, response)=>{
+
+  response.status(200).json({mesg : "User Profile"})
+})
+
 // logout controllers
 
 customer.get('/logout', (req, res) => {
