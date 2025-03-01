@@ -49,3 +49,6 @@ const adminControllers = async (request, response) => {
     });
   }
 };
+
+
+export { adminControllers}

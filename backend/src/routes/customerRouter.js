@@ -5,12 +5,15 @@ import {
   loginUser,
   forgoteSavePassword,
   forgotePassword
-} from '../controllers/userControllers/userControllers';
+} from '../controllers/userControllers/userControllers.js';
 
 const customer = express.Router();
 
 // Create USER Route
-customer.post("/create-user", createUser)
+customer.post("/create-user", ()=>{
+  console.log("Hello");
+  
+})
 
 // Login USER Route
 
@@ -33,6 +36,7 @@ customer.get('/logout', (req, res) => {
 
   return res.json({ message: 'All cookies cleared' });
 });
+
 
 
 
