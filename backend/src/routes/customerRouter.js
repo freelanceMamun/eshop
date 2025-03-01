@@ -10,10 +10,7 @@ import {
 const customer = express.Router();
 
 // Create USER Route
-customer.post("/create-user", ()=>{
-  console.log("Hello");
-  
-})
+customer.post("/create-user", createUser)
 
 // Login USER Route
 
