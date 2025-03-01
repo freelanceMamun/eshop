@@ -7,6 +7,11 @@ import {
   forgotePassword
 } from '../controllers/userControllers/userControllers.js';
 
+
+// verify Token
+ 
+import { verifyToken, authorizeRoles } from '../auth/AuthVerifiy.js';
+
 const customer = express.Router();
 
 // Create USER Route
@@ -24,9 +29,8 @@ customer.post("/reset-password/email" , forgoteSavePassword)
 
 // User Profile
 
-customer.post("/profile",(request, response)=>{
-
-  response.status(200).json({mesg : "User Profile"})
+customer.get("/profile", verifyToken, authorizeRoles("customer"), (request, response)=>{
+   response.status(200).json({mesg : "User Profile"})
 })
 
 // logout controllers
