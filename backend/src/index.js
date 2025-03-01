@@ -3,8 +3,9 @@ import morgan from 'morgan';
 import cors from 'cors';
 import globalError from './middleware/globalError.js';
 import cookieParser from 'cookie-parser';
-import userRoute from './routes/userRoute.js';
 
+import admin from './routes/adminRoute.js';
+import customer from './routes/customerRouter.js';
 const app = express();
 
 app.use(express.json());
@@ -22,7 +23,8 @@ app.get('/', (req, res) => {
 });
 
 // user control route
-app.use('/api/user/', userRoute);
+app.use('/api/user/', customer);
+app.use("/api/", admin )
 
 // ====== Global Error Handelr ============
 app.use(globalError);
