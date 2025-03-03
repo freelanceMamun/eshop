@@ -96,6 +96,11 @@ body {
   border-radius: 50% !important;
 }
 
+
+.expanded{
+  max-height: 200px;
+}
+
 @keyframes Marque {
   0% {
     transform: translateX(0);

@@ -8,19 +8,11 @@ let arr = [1,2,3];
 
 const ShopFilter = () => {
   const [taggle, setTaggle] = useState(false);
-  const [height, setHeight] = useState('45px');
+  const [clsname, setclsName] = useState('expanded');
 
   const ref = useRef();
   const handelToggl = (key,index) => {
-     let num =  arr.find((a)=> a === key)
-     
-    
-     console.log(num);
-
-     if(num === key){
-      setHeight("200px")
-     }
-     
+  
   };
 
   return (
@@ -31,12 +23,12 @@ const ShopFilter = () => {
          
           key={index}
            onClick={()=> handelToggl(key)}
-           style={{maxHeight : height} }
-           className={`border-b overflow-hidden transition-all duration-500 border-[#ddd]`}
+           
+           className={`border-b overflow-hidden  max-h-12 transition-all duration-500 border-[#ddd]`}
          >
            <h6
             
-             className=" py-3 text-[13px] cursor-pointer uppercase font-semibold tracking-wider flex justify-between"
+             className=" py-3 text-[13px]  cursor-pointer uppercase font-semibold tracking-wider flex justify-between"
            >
              categories
              <FaPlus></FaPlus>
