@@ -27,7 +27,7 @@ const ShopFilter = () => {
     <div>
       <div className="px-4">
         {arr.map((key, index)=>{ 
-          return   <div
+          return   <aside
          
           key={index}
            onClick={()=> handelToggl(key)}
@@ -68,7 +68,7 @@ const ShopFilter = () => {
                </ul>
              </div>
            </div>
-         </div>
+         </aside>
          })}
        
        
