@@ -18,6 +18,15 @@ admin
 
 
 
+Page Design 
+
+my-account
+Product Single Page
+Contact page 
+checkout page
+cart page
+blog Single page
+
 
 
 
