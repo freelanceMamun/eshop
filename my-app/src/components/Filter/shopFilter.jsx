@@ -12,9 +12,12 @@ const ShopFilter = () => {
 
   const ref = useRef();
   const handelToggl = (key,index) => {
-     let num =  arr.findIndex((a)=> a === key)
+     let num =  arr.find((a)=> a === key)
      
-     if(num === index){
+    
+     console.log(num);
+
+     if(num === key){
       setHeight("200px")
      }
      
@@ -27,7 +30,7 @@ const ShopFilter = () => {
           return   <div
          
           key={index}
-           onClick={()=> handelToggl(key,index)}
+           onClick={()=> handelToggl(key)}
            style={{maxHeight : height} }
            className={`border-b overflow-hidden transition-all duration-500 border-[#ddd]`}
          >
