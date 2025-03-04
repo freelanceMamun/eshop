@@ -15,9 +15,6 @@ admin
 2. middleware > email verify > Forgot Password > update password 
 
 
-
-
-
 Page Design 
 
 my-account
