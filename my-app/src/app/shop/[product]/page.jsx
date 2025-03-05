@@ -1,10 +1,10 @@
 import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
 const Product = () => {
-  return <div>
+  return <div className='py-8'>
     <div className=' grid grid-cols-2'>
       <div></div>
-      <div>
+      <div className='md:w-[720px] px-8'>
       <div className='flex items-start'>
         {/* Bread Come */}
          <BreadCum />
@@ -13,7 +13,7 @@ const Product = () => {
       {/*  Product Descript */}
       <div className=''>
        <div className=''>
-        <h4>Crossback Halter Dress</h4>
+        <h4 className='text-[30px]'>Crossback Halter Dress</h4>
         <div className=''>$2,400.00-$2,650.00</div>
         <div>
         A shapely halter dress designed with slinky crossback straps and a leg-baring slit is an elegant option for your upcoming event.
