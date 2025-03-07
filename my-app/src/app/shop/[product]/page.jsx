@@ -13,9 +13,9 @@ const Product = () => {
       {/*  Product Descript */}
       <div className=''>
        <div className=''>
-        <h4 className='text-[30px]'>Crossback Halter Dress</h4>
-        <div className=''>$2,400.00-$2,650.00</div>
-        <div>
+        <h4 className='text-[30px] py-4'>Crossback Halter Dress</h4>
+        <div className='py-3'>$2,400.00-$2,650.00</div>
+        <div className='py-3 text-sm'>
         A shapely halter dress designed with slinky crossback straps and a leg-baring slit is an elegant option for your upcoming event.
         </div>
        </div>  
@@ -23,8 +23,8 @@ const Product = () => {
       </div>
       {/*  Product Descript */}
       {/* Size */}
-      <div className=''>
-        <div className='flex items-center'>
+      <div className=' py-5'>
+        <div className='flex items-center py-4'>
           <h5 className=' text-[16px] font-bold uppercase'>Size</h5>
           <h5 className=' uppercase'>Size Guide</h5>
         </div>
