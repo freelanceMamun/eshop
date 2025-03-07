@@ -23,7 +23,7 @@ const Product = () => {
       </div>
       {/*  Product Descript */}
       {/* Size */}
-      <div className=' py-5'>
+      <div className=' py-4'>
         <div className='flex items-center py-4'>
           <h5 className=' text-[16px] font-bold uppercase'>Size</h5>
           <h5 className=' uppercase'>Size Guide</h5>
@@ -37,8 +37,17 @@ const Product = () => {
           </div>
         </div>
       </div>
-
-      {/* Size */}
+        {/* Size */}
+        {/*  Color */}
+        <div className='py-4'>
+          <div className='flex'>
+            <h5 className=' uppercase font-bold text-[16px]'>Color</h5>
+          </div>
+          <div className=''>
+            <h4>$2,5000</h4>
+          </div>
+        </div>
+        {/* Color */}
       </div>
     </div>
   </div>;
