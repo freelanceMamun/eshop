@@ -48,6 +48,12 @@ const Product = () => {
           </div>
         </div>
         {/* Color */}
+
+        {/* Add to card */}
+        <div class="">
+             <button id="addToCart" class="bg-black text-white px-14 py-3 text-[15px]  duration-500 transition-all  hover:bg-[#FC5F49]">Add to Cart</button>
+       </div>
+        
       </div>
     </div>
   </div>;
