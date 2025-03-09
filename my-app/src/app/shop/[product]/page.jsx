@@ -50,10 +50,14 @@ const Product = () => {
         {/* Color */}
 
         {/* Add to card */}
-        <div class="">
-             <button id="addToCart" class="bg-black text-white px-14 py-3 text-[15px]  duration-500 transition-all  hover:bg-[#FC5F49]">Add to Cart</button>
+        <div class=" flex gap-4">
+          <div className='border flex w-32 justify-between items-center'>
+            <div className='cursor-pointer  text-center w-8 px-1 text-lg'>-</div>
+            <div className=' text-sm'>20</div>
+            <div className='cursor-pointer text-center  w-8  px-1 text-lg'>+</div>
+          </div>
+             <button id="addToCart" class="bg-black text-white px-14 py-3 text-[15px]  duration-00 transition-all  hover:bg-[#FC5F49]">Add to Cart</button>
        </div>
-        
       </div>
     </div>
   </div>;
