@@ -57,7 +57,16 @@ const Product = () => {
             <div className='cursor-pointer text-center  w-8  px-1 text-lg'>+</div>
           </div>
              <button id="addToCart" class="bg-black text-white px-14 py-3 text-[15px]  duration-00 transition-all  hover:bg-[#FC5F49]">Add to Cart</button>
-       </div>
+        </div>
+        <div className='flex items-center justify-between w-[60%] py-5'>
+          <div className='cursor-pointer uppercase text-sm'>
+            add to wishlist
+          </div>
+          <div className=' uppercase text-sm'>
+            Category  : 
+          </div>
+          <div className=' text-sm uppercase'>TAG : </div>
+        </div>
       </div>
     </div>
   </div>;
