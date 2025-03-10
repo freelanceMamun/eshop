@@ -1,5 +1,8 @@
 import React from 'react';
 import BreadCum from '@/components/breadcum/breadcum';
+
+import { Alert } from "flowbite-react";
+import Accroding from '@/components/accroding/accroding';
 const Product = () => {
   return <div className='py-8'>
     <div className=' grid grid-cols-2'>
@@ -73,12 +76,9 @@ const Product = () => {
 
         {/* Descriptions */}
  
-        
+        <Accroding  />
 
-
-
-
-        
+      
         {/*  */}
       </div>
     </div>
