@@ -17,14 +17,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <link href="../path/to/src/pagedone.css" rel="stylesheet"/>
+    
       <body className={`${ManropeFont.className}  antialiased`}>
         <Navbar></Navbar>
         {children}
         <footer>
           <Footer></Footer>
         </footer>
-        <script src="../path/to/src/pagedone.js"></script>
+      
       </body>
     </html>
   );
