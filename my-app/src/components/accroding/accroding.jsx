@@ -2,13 +2,6 @@
 import React from 'react'
 
 
-import { Accordion } from 'flowbite-react';
-/*
-* accordionEl: HTML element (required)
-* accordionItems: array of accordion item objects (required)
-* options (optional)
-* instanceOptions (optional)
-*/
 
 
 const Accroding = () => {
