@@ -62,13 +62,13 @@ const Product = () => {
         </div>
         {/*  */}
         <div className='flex items-center justify-between w-[60%] py-5'>
-          <div className='cursor-pointer uppercase text-sm'>
+          <div className='cursor-pointer uppercase text-[12px]'>
             add to wishlist
           </div>
-          <div className=' uppercase text-sm'>
+          <div className=' uppercase text-[12px]'>
             Category  : 
           </div>
-          <div className=' text-sm uppercase'>TAG : </div>
+          <div className=' text-[12px] uppercase'>TAG : </div>
         </div>
 
         {/*  */}
