@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     
-      <body className={`${ManropeFont.className}  antialiased`}>
+      <body className={`${ManropeFont.className}   antialiased`}>
         <Navbar></Navbar>
         {children}
         <footer>

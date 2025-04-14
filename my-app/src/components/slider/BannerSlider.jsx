@@ -18,7 +18,7 @@ const BannerSlider = () => {
   };
 
   return (
-    <div className=" overflow-hidden">
+    <div className=" bg-white overflow-hidden">
       <Slider {...settings}>
         {SliderData.map((item, index) => {
           return (
@@ -36,7 +36,7 @@ const BannerSlider = () => {
                         </h1>
                       </div>
                       <div className="xl:pb-8 lg:pb-4 pb-3">
-                        <p className="text-[12px] font-normal">
+                        <p className="text-[12px] font-normal text-black">
                           Introducing the new fashion summer collection,
                           featuring bold and bright colors, playful prints, and
                           comfortable yet stylish pieces perfect for any
