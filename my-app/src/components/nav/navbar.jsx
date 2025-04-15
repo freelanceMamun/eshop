@@ -9,7 +9,7 @@ import { CiMenuBurger } from 'react-icons/ci';
 import MenuBar from './menubar';
 const Navbar = () => {
   return (
-    <nav className="">
+    <nav className="bg-white">
       <div className="container max-w-full px-6 py-4 flex items-center justify-between">
         {/* Offer Section */}
         <div className="text-[11px] font-medium md:block lg:block  hidden justify-center text-[#070707]">
@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="brand-logo">
           <div className="font-bold">
             <h2 className="uppercase xl:text-2xl text-xl">
-              <a href="/">Webnuxt Shop</a>
+              <a href="/" className='text-black'>Webnuxt Shop</a>
             </h2>
           </div>
         </div>
