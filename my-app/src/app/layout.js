@@ -3,11 +3,11 @@ import './globals.css';
 
 import Navbar from '@/components/nav/navbar';
 import Footer from '@/components/footer/footer';
+
+import ReduxProvider from '@/redux/Provider';
+
 // If loading a variable font, you don't need to specify the font weight
-const ManropeFont = Manrope({
-  weight: '400',
-  subsets: ['latin'],
-});
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -18,13 +18,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     
-      <body className={`${ManropeFont.className}   antialiased`}>
+      <body className={`   antialiased`}>
         <Navbar></Navbar>
+        <ReduxProvider>
+         
         {children}
         <footer>
           <Footer></Footer>
         </footer>
-      
+       </ReduxProvider>
       </body>
     </html>
   );
