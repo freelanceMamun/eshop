@@ -9,10 +9,10 @@ const Card = () => {
     <div className="border hover:border-black transition-all duration-300  product-picture">
       <div className=" relative">
         <div className="flex items-center gap-3 justify-end absolute top-3 z-10 right-3">
-          <div className="border-black border bg-white px-3 py-1 w-max text-[10px]">
+          <div className="border-black text-black border bg-white px-3 py-1 w-max text-[10px]">
             <span>BEST SELLER</span>
           </div>
-          <div className="offer  border bg-white border-red-500 px-3 py-1 w-max text-[10px]">
+          <div className="offer  border bg-white text-red-500 border-red-500 px-3 py-1 w-max text-[10px]">
             -20%
           </div>
         </div>
