@@ -63,10 +63,10 @@ export default function Home() {
       </div>
       {/* Slider */}
       <Banner></Banner>
-      <></>
+      
       {/* <QuickViewModal /> */}
 
-      <div className="py-12 lg:px-32">
+      <div className="py-12 lg:px-32 bg-white">
         <div className="text-center">
           <p className="xl:text-5xl xl:leading-[70px] md:text-3xl text-2xl">
             We believe that every human deserves to feel beautiful and

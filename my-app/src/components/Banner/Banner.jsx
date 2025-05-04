@@ -2,7 +2,7 @@ import React from 'react';
 import bannerImage from '@/asset/moderno-2726173801-960x600.jpg';
 const Banner = () => {
   return (
-    <div className="py-10">
+    <div className="py-10 bg-white">
       <div className="grid xl:grid-cols-3 lg:grid-cols-3 grid-cols-2">
         <div className="">
           <div
