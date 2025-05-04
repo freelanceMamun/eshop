@@ -11,9 +11,9 @@ export default function Home() {
     <main className="">
       <BannerSlider></BannerSlider>
       <MarqueText></MarqueText>
-      <div className="py-10">
+      <div className="py-10 bg-white">
         <div className="">
-          <h4 className="text-center text-2xl font-semibold tracking-wider">
+          <h4 className="text-center text-2xl font-semibold tracking-wider text-black">
             BIG SALES
           </h4>
         </div>
@@ -22,7 +22,7 @@ export default function Home() {
             <li>
               <a
                 href="#"
-                className="uppercase font-semibold text-[14px] tracking-wider"
+                className="uppercase font-semibold text-[14px] tracking-wider text-black"
               >
                 WOMEN
               </a>

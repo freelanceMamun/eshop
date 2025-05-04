@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 const MarqueText = () => {
   return (
     <div className="w-full">
-      <div className=" border py-5 border-[#000] w-full">
+      <div className=" border py-5 bg-white text-black border-[#000] w-full">
         <Marquee>
           <Mycomponents></Mycomponents>
           <Mycomponents></Mycomponents>
