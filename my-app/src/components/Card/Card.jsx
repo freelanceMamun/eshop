@@ -36,7 +36,7 @@ const Card = () => {
               src={poImg}
             ></Image>
           </div>
-          <div className="flex items-center justify-between gap-2 absolute bottom-4 w-full">
+          <div className="flex  items-center justify-between px-2  gap-2 absolute bottom-4 w-full">
             <QuickView></QuickView>
             <AddtoCard></AddtoCard>
           </div>
@@ -65,7 +65,7 @@ const Card = () => {
             <div className="price flex gap-1 items-center text-[12px]">
               <span className=" text-black">$2,400.00</span>
               <span className='text-gray-500'>-</span>
-              <span className=" text-gray-600">$2,400.00</span>
+              <span className=" text-gray-600 text-[10px] line-through">$2,400.00</span>
             </div>
           </div>
         </div>
