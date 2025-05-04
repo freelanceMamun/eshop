@@ -43,13 +43,13 @@ const Card = () => {
         </div>
         <div className="bg-white">
           <div className="category pt-2 px-3">
-            <a href="#" className=" uppercase text-[12px]">
+            <a href="#" className=" text-black font-medium uppercase text-[12px]">
               Valentino
             </a>
           </div>
           <div className="pb-5 px-3">
             <a className="" href="#">
-              <h4 className="py-2 text-[14px] font-semibold tracking-wide">
+              <h4 className="py-2 text-black text-[14px] font-semibold tracking-wide">
                 V Logo Pocket Wool & Silk Dress
               </h4>
             </a>
@@ -63,9 +63,9 @@ const Card = () => {
               </a>
             </p>
             <div className="price flex gap-1 items-center text-[12px]">
-              <span className="">$2,400.00</span>
-              <span>-</span>
-              <span className="">$2,400.00</span>
+              <span className=" text-black">$2,400.00</span>
+              <span className='text-gray-500'>-</span>
+              <span className=" text-gray-600">$2,400.00</span>
             </div>
           </div>
         </div>
