@@ -3,7 +3,7 @@ import Image from 'next/image';
 import CategoryImage from '@/asset/ricky-2105975080-600x929.jpg';
 const CategoryBanner = () => {
   return (
-    <div className=" py-10">
+    <div className=" py-10 bg-white">
       <div>
         <div className=" grid grid-cols-2 xl:grid-cols-4">
           <div className="border xl:h-[650px] border-black border-r-0">

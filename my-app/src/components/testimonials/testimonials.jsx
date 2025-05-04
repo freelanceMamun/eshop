@@ -59,7 +59,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="px-4 py-4 overflow-hidden testimonials_slider">
+    <div className="px-4 py-4 bg-white overflow-hidden testimonials_slider">
       <Slider {...settings}>
         <div className="border w-[770px] py-20 px-16  testimonials">
           <div className="flex gap-8 items-center">
@@ -67,73 +67,39 @@ const Testimonials = () => {
               <img src={pictures.src} className="w-full h-full" alt="profile" />
             </div>
             <div className=" flex-1">
-              <p>
+              <p className='text-black'>
                 I am a regular at this fashion shop - their stylish clothes and
                 accessories always keep me ahead of the trend.
               </p>
-              <h4 className="font-semibold">Madelyn George, ELLE</h4>
+              <h4 className="font-semibold text-black">Madelyn George, ELLE</h4>
             </div>
           </div>
         </div>
-        <div className="border w-[770px] py-20 px-16  testimonials">
-          <div className="flex gap-8 items-center">
-            <div className="rounded-full overflow-hidden w-24 h-24">
-              <img src={pictures.src} className="w-full h-full" alt="profile" />
-            </div>
-            <div className=" flex-1">
-              <p>
-                I am a regular at this fashion shop - their stylish clothes and
-                accessories always keep me ahead of the trend.
-              </p>
-              <h4 className="font-semibold">Madelyn George, ELLE</h4>
-            </div>
-          </div>
-        </div>
-        <div className="border w-[770px] py-20 px-16  testimonials">
-          <div className="flex gap-8 items-center">
-            <div className="rounded-full overflow-hidden w-24 h-24">
-              <img src={pictures.src} className="w-full h-full" alt="profile" />
-            </div>
-            <div className=" flex-1">
-              <p>
-                I am a regular at this fashion shop - their stylish clothes and
-                accessories always keep me ahead of the trend.
-              </p>
-              <h4 className="font-semibold">Madelyn George, ELLE</h4>
-            </div>
-          </div>
-        </div>
-        <div className="border w-[770px] py-20 px-16  testimonials">
-          <div className="flex gap-8 items-center">
-            <div className="rounded-full overflow-hidden w-24 h-24">
-              <img src={pictures.src} className="w-full h-full" alt="profile" />
-            </div>
-            <div className=" flex-1">
-              <p>
-                I am a regular at this fashion shop - their stylish clothes and
-                accessories always keep me ahead of the trend.
-              </p>
-              <h4 className="font-semibold">Madelyn George, ELLE</h4>
-            </div>
-          </div>
-        </div>
-        <div className="border w-[770px] py-20 px-16  testimonials">
-          <div className="flex gap-8 items-center">
-            <div className="rounded-full overflow-hidden w-24 h-24">
-              <img src={pictures.src} className="w-full h-full" alt="profile" />
-            </div>
-            <div className=" flex-1">
-              <p>
-                I am a regular at this fashion shop - their stylish clothes and
-                accessories always keep me ahead of the trend.
-              </p>
-              <h4 className="font-semibold">Madelyn George, ELLE</h4>
-            </div>
-          </div>
-        </div>
-      </Slider>
+
+        </Slider>
     </div>
   );
 };
+
+
+
+function SliderITem() {
+  
+  return  <div className="border w-[770px] py-20 px-16  testimonials">
+          <div className="flex gap-8 items-center">
+            <div className="rounded-full overflow-hidden w-24 h-24">
+              <img src={pictures.src} className="w-full h-full" alt="profile" />
+            </div>
+            <div className=" flex-1">
+              <p className='text-black'>
+                I am a regular at this fashion shop - their stylish clothes and
+                accessories always keep me ahead of the trend.
+              </p>
+              <h4 className="font-semibold text-black">Madelyn George, ELLE</h4>
+            </div>
+          </div>
+        </div>
+}
+
 
 export default Testimonials;
