@@ -1,16 +1,16 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 import {
   BiLogoFacebook,
   BiLogoInstagramAlt,
   BiLogoTwitter,
   BiLogoYoutube,
-} from 'react-icons/bi';
+} from "react-icons/bi";
 
-import paymentImg from '@/asset/ricky-2152262473.webp';
+import paymentImg from "@/asset/ricky-2152262473.webp";
 const Footer = () => {
   return (
-    <div className="bg-[#070707]">
+    <footer className="bg-[#070707]">
       <div className="xl:px-20 x:py-20 px-5 py-10">
         <div className="grid xl:grid-cols-3">
           <div className="w-[70%]">
@@ -175,7 +175,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
