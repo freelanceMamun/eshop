@@ -1,9 +1,7 @@
 import { Manrope } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/footer/footer";
-
 import ReduxProvider from "@/redux/Provider";
 
 // If loading a variable font, you don't need to specify the font weight

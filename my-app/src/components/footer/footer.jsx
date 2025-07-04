@@ -1,3 +1,6 @@
+"use client";
+import { useParams, useSearchParams, usePathname } from "next/navigation";
+
 import Image from "next/image";
 import React from "react";
 import {
@@ -9,8 +12,15 @@ import {
 
 import paymentImg from "@/asset/ricky-2152262473.webp";
 const Footer = () => {
+  const path = usePathname();
+  console.log(path, "Hello");
+
+  if (path === "/admin") {
+    return;
+  }
+
   return (
-    <footer className="bg-[#070707]">
+    <div className="bg-[#070707]">
       <div className="xl:px-20 x:py-20 px-5 py-10">
         <div className="grid xl:grid-cols-3">
           <div className="w-[70%]">
@@ -175,7 +185,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

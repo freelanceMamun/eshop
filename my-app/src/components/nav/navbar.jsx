@@ -1,13 +1,23 @@
-import React from 'react';
+"use client";
 
-import { BiUser } from 'react-icons/bi';
-import { BiSearch } from 'react-icons/bi';
-import { BiHeart, BiShoppingBag } from 'react-icons/bi';
+import { usePathname } from "next/navigation";
 
-import { CiMenuBurger } from 'react-icons/ci';
+import React from "react";
 
-import MenuBar from './menubar';
+import { BiUser } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
+import { BiHeart, BiShoppingBag } from "react-icons/bi";
+
+import { CiMenuBurger } from "react-icons/ci";
+
+import MenuBar from "./menubar";
 const Navbar = () => {
+  const path = usePathname();
+
+  if (path === "/admin") {
+    return;
+  }
+
   return (
     <nav className="bg-white">
       <div className="container max-w-full px-6 py-4 flex items-center justify-between">
@@ -29,7 +39,9 @@ const Navbar = () => {
         <div className="brand-logo">
           <div className="font-bold">
             <h2 className="uppercase xl:text-2xl text-xl">
-              <a href="/" className='text-black'>Webnuxt Shop</a>
+              <a href="/" className="text-black">
+                Webnuxt Shop
+              </a>
             </h2>
           </div>
         </div>

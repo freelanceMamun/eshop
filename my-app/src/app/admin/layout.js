@@ -1,10 +1,11 @@
 // app/admin/layout.tsx
+
 export const metadata = {
   title: "Admin Panel",
   description: "Admin area only",
 };
 
-export default function AdminLayout({ children }) {
+function AdminLayout({ children }) {
   return (
     // OVERRIDING main layout
     <html lang="en">
@@ -19,3 +20,5 @@ export default function AdminLayout({ children }) {
     </html>
   );
 }
+
+export default AdminLayout;
