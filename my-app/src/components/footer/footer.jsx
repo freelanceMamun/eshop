@@ -13,11 +13,18 @@ import {
 import paymentImg from "@/asset/ricky-2152262473.webp";
 const Footer = () => {
   const path = usePathname();
-  console.log(path, "Hello");
 
-  if (path === "/admin") {
+  if (
+    path === "/admin" ||
+    path === "/admin/dashboard" ||
+    path === "/admin/reset-password" ||
+    path === "/admin/user" ||
+    path === "/admin/order"
+  ) {
     return;
   }
+
+  console.log(path);
 
   return (
     <div className="bg-[#070707]">

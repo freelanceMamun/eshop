@@ -14,9 +14,14 @@ import MenuBar from "./menubar";
 const Navbar = () => {
   const path = usePathname();
 
-  if (path === "/admin") {
-    return;
-  }
+  // if (
+  //   path === "/admin" ||
+  //   path === "/admin/reset-password" ||
+  //   path === "/admin/user" ||
+  //   path === "/admin/order"
+  // ) {
+  //   return;
+  // }
 
   return (
     <nav className="bg-white">

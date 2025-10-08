@@ -1,9 +1,9 @@
-import USER from '../../models/users/users.model.js';
-import { v4 as uuidv4 } from 'uuid';
-import becrypt from 'bcrypt';
-import { genetateToken, genetateTokenAdmin } from '../../auth/AuthVerifiy.js';
+import USER from "../../models/users/users.model.js";
+import { v4 as uuidv4 } from "uuid";
+import becrypt from "bcrypt";
+import { genetateToken, genetateTokenAdmin } from "../../auth/AuthVerifiy.js";
 
-import JWT from 'jsonwebtoken';
+import JWT from "jsonwebtoken";
 
 const createUser = async (request, response) => {
   try {
@@ -12,7 +12,7 @@ const createUser = async (request, response) => {
     if (!name || !email || !password) {
       return response
         .status(400)
-        .json({ success: false, message: 'Please Required Feild' });
+        .json({ success: false, message: "Please Required Feild" });
     }
 
     const exisitUser = await USER.findOne({ email });
@@ -20,7 +20,7 @@ const createUser = async (request, response) => {
     if (exisitUser) {
       return response
         .status(400)
-        .json({ success: false, message: 'User already Exists' });
+        .json({ success: false, message: "User already Exists" });
     }
 
     // Password encrypt hashed--
@@ -41,7 +41,7 @@ const createUser = async (request, response) => {
 
     return response.status(201).json({
       success: true,
-      message: 'user creaated successfully',
+      message: "user creaated successfully",
       user: {
         ...user._doc,
         password: undefined,
@@ -63,7 +63,7 @@ const loginUser = async (request, response) => {
     if (!email || !password) {
       return response.status(400).json({
         success: false,
-        message: 'Please required the feild!',
+        message: "Please required the feild!",
       });
     }
 
@@ -73,7 +73,7 @@ const loginUser = async (request, response) => {
     if (!userFound) {
       return response.status(400).json({
         success: false,
-        message: 'User Not Found Please Sign up now! ',
+        message: "User Not Found Please Sign up now! ",
       });
     }
 
@@ -83,7 +83,7 @@ const loginUser = async (request, response) => {
     if (!Checkpassword) {
       return response
         .status(404)
-        .json({ success: false, message: 'Invalid credentials' });
+        .json({ success: false, message: "Invalid credentials" });
     }
 
     const payload = {
@@ -94,10 +94,9 @@ const loginUser = async (request, response) => {
     // Genrate Token
     await genetateToken(request, response, payload);
 
-    
     return response.status(200).json({
       success: true,
-      message: 'User Loggin Susscesfull!',
+      message: "User Loggin Susscesfull!",
       payload,
     });
   } catch (error) {
@@ -139,10 +138,10 @@ const forgoteSavePassword = async (request, response) => {
 
   // Token Verify in Reset Password
   const responseUser = await JWT.verify(
-    authorization.split(' ')[1],
+    authorization.split(" ")[1],
     process.env.jWT_SECRETEkEY,
     (err, user) => {
-      if (err) response.status(403).json('token is not valid');
+      if (err) response.status(403).json("token is not valid");
       return user;
     }
   );
@@ -150,10 +149,10 @@ const forgoteSavePassword = async (request, response) => {
   // if response is true then password hasbeen saved
 
   if (responseUser) {
-    await USER.findOneAndUpdate({id})
+    await USER.findOneAndUpdate({ id });
   }
 
-  console.log(authorization.split(' ')[1]);
+  console.log(authorization.split(" ")[1]);
 
   console.log(responseUser);
 };
@@ -162,16 +161,13 @@ const forgoteSavePassword = async (request, response) => {
 const dashboardControllers = async (request, response) => {
   return response
     .status(200)
-    .json({ status: true, message: 'Wel come to Dashboard' });
+    .json({ status: true, message: "Wel come to Dashboard" });
 };
-
-
 
 export {
   createUser,
   loginUser,
   forgotePassword,
-  
   dashboardControllers,
   forgoteSavePassword,
 };

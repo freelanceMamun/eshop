@@ -1,10 +1,10 @@
-import BannerSlider from '@/components/slider/BannerSlider';
-import MarqueText from '@/components/marqueText/marqueText';
-import Card from '@/components/Card/Card';
-import QuickViewModal from '@/components/modal/QuickViewModal';
-import Banner from '@/components/Banner/Banner';
-import CategoryBanner from '@/components/Banner/CategoryBanner';
-import Testimonials from '@/components/testimonials/testimonials';
+import BannerSlider from "@/components/slider/BannerSlider";
+import MarqueText from "@/components/marqueText/marqueText";
+import Card from "@/components/Card/Card";
+import QuickViewModal from "@/components/modal/QuickViewModal";
+import Banner from "@/components/Banner/Banner";
+import CategoryBanner from "@/components/Banner/CategoryBanner";
+import Testimonials from "@/components/testimonials/testimonials";
 
 export default function Home() {
   return (
@@ -63,7 +63,7 @@ export default function Home() {
       </div>
       {/* Slider */}
       <Banner></Banner>
-      
+
       {/* <QuickViewModal /> */}
 
       <div className="py-12 lg:px-32 bg-white">

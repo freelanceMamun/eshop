@@ -1,18 +1,22 @@
-import express from 'express';
-import {adminControllers} from '../controllers/userControllers/adminControllers.js';
+import express from "express";
+import {
+  adminLoginControllers,
+  adminDefaultContrllers,
+} from "../controllers/userControllers/adminControllers.js";
 
-import { verifyAdminToken, authorizeRoles } from '../auth/AuthVerifiy.js';
+import { verifyAdminToken, authorizeRoles } from "../auth/AuthVerifiy.js";
 
 const admin = express.Router();
 
-admin.post('/admin', adminControllers);
+admin.post("/admin", adminLoginControllers);
+admin.post("/admin/register", adminDefaultContrllers);
 
 admin.get(
-  '/admin',
+  "/admin",
   verifyAdminToken,
-  authorizeRoles('admin'),
+  authorizeRoles("admin"),
   (request, response) => {
-    return response.json({ message: 'welcome to admin' });
+    return response.json({ message: "welcome to admin" });
   }
 );
 

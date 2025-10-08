@@ -1,9 +1,9 @@
 // redux-provider.tsx
-'use client';
+"use client";
 
-import { Provider } from 'react-redux';
-import { store } from '@/store/index';
-import React from 'react';
+import { Provider } from "react-redux";
+import store from "@/store/store";
+import React from "react";
 
 export default function ReduxProvider({ children }) {
   return <Provider store={store}>{children}</Provider>;
