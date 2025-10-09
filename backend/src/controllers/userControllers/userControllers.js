@@ -5,97 +5,44 @@ import { genetateToken, genetateTokenAdmin } from "../../auth/AuthVerifiy.js";
 
 import JWT from "jsonwebtoken";
 
-const createUser = async (request, response) => {
-  try {
-    const { name, email, password, role } = request.body;
+const CreateUser = async (request, response) => {
+  const { name, email, password, phone } = request.body;
 
-    if (!name || !email || !password) {
-      return response
-        .status(400)
-        .json({ success: false, message: "Please Required Feild" });
-    }
-
-    const exisitUser = await USER.findOne({ email });
-
-    if (exisitUser) {
-      return response
-        .status(400)
-        .json({ success: false, message: "User already Exists" });
-    }
-
-    // Password encrypt hashed--
-
-    // new user
-
-    const user = new USER({
-      name,
-      password,
-      email: email,
-      uuid: uuidv4(),
-    });
-
-    // save to user
-    await user.save();
-
-    return response.status(201).json({
-      success: true,
-      message: "user creaated successfully",
-      user: {
-        ...user._doc,
-        password: undefined,
-      },
-    });
-  } catch (error) {
-    return response
-      .status(400)
-      .json({ success: false, message: error.message });
-  }
-};
-
-// Login User
-
-const loginUser = async (request, response) => {
-  const { email, password } = request.body;
+  // Validation
 
   try {
-    if (!email || !password) {
+    if (!name || !email || !password || !phone) {
       return response.status(400).json({
         success: false,
         message: "Please required the feild!",
       });
     }
 
-    // Exit User not found
-    const userFound = await USER.findOne({ email });
+    // Exit User already exist
+    const userExits = await USER.findOne({ email });
 
-    if (!userFound) {
+    if (userExits) {
       return response.status(400).json({
         success: false,
-        message: "User Not Found Please Sign up now! ",
+        message: "User Already Exist Please Login Now! ",
       });
     }
 
-    // Password Check Validtion
+    // Create New User
 
-    const Checkpassword = await becrypt.compare(password, userFound.password);
-    if (!Checkpassword) {
-      return response
-        .status(404)
-        .json({ success: false, message: "Invalid credentials" });
-    }
+    const createNewUser = await USER.create({
+      name,
+      email,
+      password,
+      phone,
+    });
 
-    const payload = {
-      name: userFound.name,
-      id: userFound._id,
-      role: userFound.role,
-    };
-    // Genrate Token
-    await genetateToken(request, response, payload);
+    await createNewUser.save();
 
-    return response.status(200).json({
+    return response.status(201).json({
       success: true,
-      message: "User Loggin Susscesfull!",
-      payload,
+      message: "User Create Susscesfull!",
+      createNewUser,
     });
   } catch (error) {
     return response.status(400).json({
@@ -105,67 +52,120 @@ const loginUser = async (request, response) => {
   }
 };
 
-// Fogote Password
-const forgotePassword = async (request, response) => {
-  try {
-    const { password } = request.body;
+// Login User
 
-    return response.json({
-      status: true,
-      user: request.UserFind,
-    });
-    /// Generate
-  } catch (error) {
-    console.log(error);
-  }
-};
+// const loginUser = async (request, response) => {
+//   const { email, password } = request.body;
 
-// ForgotPassword save
+//   try {
+//     if (!email || !password) {
+//       return response.status(400).json({
+//         success: false,
+//         message: "Please required the feild!",
+//       });
+//     }
 
-const forgoteSavePassword = async (request, response) => {
-  const { authorization } = request.headers;
-  const { password } = request.body;
-  // const updatePasswordData = {
-  //   password: 852369,
-  // };
-  // if (findUser) {
-  //   await USER.findOneAndUpdate({ email }, updatePasswordData, {
-  //     returnOriginal: false,
-  //   });
-  // }
+//     // Exit User not found
+//     const userFound = await USER.findOne({ email });
 
-  // Token Verify in Reset Password
-  const responseUser = await JWT.verify(
-    authorization.split(" ")[1],
-    process.env.jWT_SECRETEkEY,
-    (err, user) => {
-      if (err) response.status(403).json("token is not valid");
-      return user;
-    }
-  );
+//     if (!userFound) {
+//       return response.status(400).json({
+//         success: false,
+//         message: "User Not Found Please Sign up now! ",
+//       });
+//     }
 
-  // if response is true then password hasbeen saved
+//     // Password Check Validtion
 
-  if (responseUser) {
-    await USER.findOneAndUpdate({ id });
-  }
+//     const Checkpassword = await becrypt.compare(password, userFound.password);
+//     if (!Checkpassword) {
+//       return response
+//         .status(404)
+//         .json({ success: false, message: "Invalid credentials" });
+//     }
 
-  console.log(authorization.split(" ")[1]);
+//     const payload = {
+//       name: userFound.name,
+//       id: userFound._id,
+//       role: userFound.role,
+//     };
+//     // Genrate Token
+//     await genetateToken(request, response, payload);
 
-  console.log(responseUser);
-};
+//     return response.status(200).json({
+//       success: true,
+//       message: "User Loggin Susscesfull!",
+//       payload,
+//     });
+//   } catch (error) {
+//     return response.status(400).json({
+//       message: error.message,
+//       status: false,
+//     });
+//   }
+// };
 
-// customer dashboard controllers
-const dashboardControllers = async (request, response) => {
-  return response
-    .status(200)
-    .json({ status: true, message: "Wel come to Dashboard" });
-};
+// // Fogote Password
+// const forgotePassword = async (request, response) => {
+//   try {
+//     const { password } = request.body;
+
+//     return response.json({
+//       status: true,
+//       user: request.UserFind,
+//     });
+//     /// Generate
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// // ForgotPassword save
+
+// const forgoteSavePassword = async (request, response) => {
+//   const { authorization } = request.headers;
+//   const { password } = request.body;
+//   // const updatePasswordData = {
+//   //   password: 852369,
+//   // };
+//   // if (findUser) {
+//   //   await USER.findOneAndUpdate({ email }, updatePasswordData, {
+//   //     returnOriginal: false,
+//   //   });
+//   // }
+
+//   // Token Verify in Reset Password
+//   const responseUser = await JWT.verify(
+//     authorization.split(" ")[1],
+//     process.env.jWT_SECRETEkEY,
+//     (err, user) => {
+//       if (err) response.status(403).json("token is not valid");
+//       return user;
+//     }
+//   );
+
+//   // if response is true then password hasbeen saved
+
+//   if (responseUser) {
+//     await USER.findOneAndUpdate({ id });
+//   }
+
+//   console.log(authorization.split(" ")[1]);
+
+//   console.log(responseUser);
+// };
+
+// // customer dashboard controllers
+// const dashboardControllers = async (request, response) => {
+//   return response
+//     .status(200)
+//     .json({ status: true, message: "Wel come to Dashboard" });
+// };
 
 export {
-  createUser,
-  loginUser,
-  forgotePassword,
-  dashboardControllers,
-  forgoteSavePassword,
+  CreateUser,
+  // loginUser,
+  // forgotePassword,
+  // dashboardControllers,
+  // forgoteSavePassword,
 };

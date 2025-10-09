@@ -1,53 +1,52 @@
-import express from 'express';
+import express from "express";
 
-import {
-  createUser,
-  loginUser,
-  forgoteSavePassword,
-  forgotePassword
-} from '../controllers/userControllers/userControllers.js';
+import { CreateUser } from "../controllers/userControllers/userControllers.js";
 
+const Router = express.Router();
 
 // verify Token
- 
-import { verifyToken, authorizeRoles } from '../auth/AuthVerifiy.js';
 
-const customer = express.Router();
+import { verifyToken, authorizeRoles } from "../auth/AuthVerifiy.js";
 
-// Create USER Route
-customer.post("/create-user", createUser)
+//  Public Route
+
+Router.post("/login");
+Router.post("/create-user", CreateUser);
+Router.get("/public", (req, res) => {
+  return res.status(200).json({ mesg: "Public Route" });
+});
 
 // Login USER Route
 
-customer.post("/login", loginUser)
+// customer.post("/login", loginUser)
 
-/// Forgot Password 
+// /// Forgot Password
 
-customer.post("/reset-password", forgotePassword)
+// customer.post("/reset-password", forgotePassword)
 
-customer.post("/reset-password/email" , forgoteSavePassword)
+// customer.post("/reset-password/email" , forgoteSavePassword)
 
 // User Profile
 
-customer.get("/profile", verifyToken, authorizeRoles("customer"), (request, response)=>{
-   response.status(200).json({mesg : "User Profile"})
-})
+// Router.get(
+//   "/profile",
+//   verifyToken,
+//   authorizeRoles("customer"),
+//   (request, response) => {
+//     response.status(200).json({ mesg: "User Profile" });
+//   }
+// );
 
 // logout controllers
 
-customer.get('/logout', (req, res) => {
-  // Iterate through all cookies and clear them
-  const cookies = req.cookies;
-  for (const cookieName in cookies) {
-    res.clearCookie(cookieName);
-  }
+// Router.get("/logout", (req, res) => {
+//   // Iterate through all cookies and clear them
+//   const cookies = req.cookies;
+//   for (const cookieName in cookies) {
+//     res.clearCookie(cookieName);
+//   }
 
-  return res.json({ message: 'All cookies cleared' });
-});
+//   return res.json({ message: "All cookies cleared" });
+// });
 
-
-
-
-
-
-export default customer;
+export default Router;

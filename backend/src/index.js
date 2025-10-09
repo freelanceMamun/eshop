@@ -1,14 +1,12 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import globalError from "./middleware/globalError.js";
+
 import cookieParser from "cookie-parser";
 
 import admin from "./routes/adminRoute.js";
-import customer from "./routes/customerRouter.js";
+import Router from "./routes/customerRouter.js";
 const app = express();
-
-app.use(globalError);
 
 app.use(express.json());
 app.use(
@@ -25,8 +23,8 @@ app.get("/", (req, res) => {
 });
 
 // user control route
-app.use("/api/user/", customer);
-app.use("/api", admin);
+// app.use("/api/v1/admin/", admin);
+app.use("/api/v1/user", Router);
 
 // ====== Global Error Handelr ============
 
