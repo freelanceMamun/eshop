@@ -1,9 +1,5 @@
 import USER from "../../models/users/users.model.js";
-import { v4 as uuidv4 } from "uuid";
-import becrypt from "bcrypt";
 import { genetateToken, genetateTokenAdmin } from "../../auth/AuthVerifiy.js";
-
-import JWT from "jsonwebtoken";
 
 const CreateUser = async (request, response) => {
   const { name, email, password, phone } = request.body;
@@ -54,56 +50,67 @@ const CreateUser = async (request, response) => {
 
 // Login User
 
-// const loginUser = async (request, response) => {
-//   const { email, password } = request.body;
+const loginUser = async (request, response) => {
+  const { email, password } = request.body;
 
-//   try {
-//     if (!email || !password) {
-//       return response.status(400).json({
-//         success: false,
-//         message: "Please required the feild!",
-//       });
-//     }
+  try {
+    if (!email || !password) {
+      return response.status(400).json({
+        success: false,
+        message: "Please required the feild!",
+      });
+    }
 
-//     // Exit User not found
-//     const userFound = await USER.findOne({ email });
+    // Exit User not found
+    const userFound = await USER.findOne({ email });
 
-//     if (!userFound) {
-//       return response.status(400).json({
-//         success: false,
-//         message: "User Not Found Please Sign up now! ",
-//       });
-//     }
+    if (!userFound) {
+      return response.status(400).json({
+        success: false,
+        message: "User Not Found Please Sign up now! ",
+      });
+    }
 
-//     // Password Check Validtion
+    // Password Check Validtion
 
-//     const Checkpassword = await becrypt.compare(password, userFound.password);
-//     if (!Checkpassword) {
-//       return response
-//         .status(404)
-//         .json({ success: false, message: "Invalid credentials" });
-//     }
+    // const Checkpassword = await becrypt.compare(password, userFound.password);
+    // if (!Checkpassword) {
+    //   return response
+    //     .status(404)
+    //     .json({ success: false, message: "Invalid credentials" });
+    // }
 
-//     const payload = {
-//       name: userFound.name,
-//       id: userFound._id,
-//       role: userFound.role,
-//     };
-//     // Genrate Token
-//     await genetateToken(request, response, payload);
+    const payload = {
+      name: userFound.name,
+      id: userFound._id,
+      email: userFound.email,
+    };
 
-//     return response.status(200).json({
-//       success: true,
-//       message: "User Loggin Susscesfull!",
-//       payload,
-//     });
-//   } catch (error) {
-//     return response.status(400).json({
-//       message: error.message,
-//       status: false,
-//     });
-//   }
-// };
+    // Genrate Token
+    const token = await genetateToken(request, response, payload);
+
+    //  response user
+    const responseUser = {
+      id: userFound._id,
+      name: userFound.name,
+      role: userFound.role,
+      phone: userFound.phone,
+      address: userFound.addresses,
+      token: token,
+    };
+
+    return response.status(200).json({
+      success: true,
+      message: "User Loggin Susscesfull!",
+      responseUser,
+    });
+  } catch (error) {
+    return response.status(400).json({
+      message: error.message,
+      status: false,
+    });
+  }
+};
 
 // // Fogote Password
 // const forgotePassword = async (request, response) => {
@@ -155,16 +162,9 @@ const CreateUser = async (request, response) => {
 //   console.log(responseUser);
 // };
 
-// // customer dashboard controllers
-// const dashboardControllers = async (request, response) => {
-//   return response
-//     .status(200)
-//     .json({ status: true, message: "Wel come to Dashboard" });
-// };
-
 export {
   CreateUser,
-  // loginUser,
+  loginUser,
   // forgotePassword,
   // dashboardControllers,
   // forgoteSavePassword,

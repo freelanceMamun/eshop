@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
 // Generate a user login token
 
@@ -6,21 +6,23 @@ const genetateToken = async (_req, res, paload) => {
   // Set the token as a cookie
 
   const token = jwt.sign(paload, process.env.jWT_SECRETEkEY, {
-    expiresIn: '1h',
+    expiresIn: "1h",
   }); // Sign the token
 
-  return await res.cookie('webnuxtauth', token, {
+  await res.cookie("webnuxtauth", token, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-    secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+    secure: process.env.NODE_ENV === "production", // Use secure cookies in production
     maxAge: 3600000, // 1 hour in milliseconds
   });
+
+  return token;
 };
 
 // Middleware to verify JWT token
 const verifyToken = async (req, res, next) => {
   const token = req.cookies.webnuxtauth; // Token from cookies
   if (!token) {
-    return res.status(401).json({ message: 'Unauthorized: No token provided' });
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
   }
 
   try {
@@ -28,7 +30,7 @@ const verifyToken = async (req, res, next) => {
     req.user = decoded; // Attach user data to the request object
     next();
   } catch (err) {
-    return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
 
@@ -39,7 +41,7 @@ function authorizeRoles(...allowedRoles) {
     if (!req.user || !allowedRoles.includes(req.user.role)) {
       return res
         .status(403)
-        .json({ message: 'Access Denied: Insufficient permissions' });
+        .json({ message: "Access Denied: Insufficient permissions" });
     }
     next();
   };
@@ -50,12 +52,12 @@ const genetateTokenAdmin = async (_req, res, paload) => {
   // Set the token as a cookie
 
   const token = jwt.sign(paload, process.env.jWT_SECRETEkEY, {
-    expiresIn: '1h',
+    expiresIn: "1h",
   }); // Sign the token
 
-  await res.cookie('adminshop', token, {
+  await res.cookie("adminshop", token, {
     httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
-    secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+    secure: process.env.NODE_ENV === "production", // Use secure cookies in production
     maxAge: 3600000, // 1 hour in milliseconds
   });
 };
@@ -65,7 +67,7 @@ const genetateTokenAdmin = async (_req, res, paload) => {
 const verifyAdminToken = async (req, res, next) => {
   const token = req.cookies.adminshop; // Token from cookies
   if (!token) {
-    return res.status(401).json({ message: 'Unauthorized: No token provided' });
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
   }
 
   try {
@@ -73,7 +75,7 @@ const verifyAdminToken = async (req, res, next) => {
     req.user = decoded; // Attach user data to the request object
     next();
   } catch (err) {
-    return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
 

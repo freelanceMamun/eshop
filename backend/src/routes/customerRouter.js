@@ -1,6 +1,9 @@
 import express from "express";
 
-import { CreateUser } from "../controllers/userControllers/userControllers.js";
+import {
+  CreateUser,
+  loginUser,
+} from "../controllers/userControllers/userControllers.js";
 
 const Router = express.Router();
 
@@ -10,7 +13,7 @@ import { verifyToken, authorizeRoles } from "../auth/AuthVerifiy.js";
 
 //  Public Route
 
-Router.post("/login");
+Router.post("/login", loginUser);
 Router.post("/create-user", CreateUser);
 Router.get("/public", (req, res) => {
   return res.status(200).json({ mesg: "Public Route" });
