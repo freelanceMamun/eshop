@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
-    // Basic Info
+    // 🧍 Basic Info
     name: {
       type: String,
       required: true,
@@ -19,39 +19,28 @@ const userSchema = new mongoose.Schema(
 
     phone: {
       type: String,
-      required: false,
     },
 
     password: {
       type: String,
       required: true,
       minlength: 6,
-      select: false, // hide from queries by default
+      select: false,
     },
 
-    // Role Management
+    // 👑 Role Management
     role: {
       type: String,
-      enum: ["customer", "admin"],
+      enum: ["customer", "admin", "seller"],
       default: "customer",
     },
 
-    // Profile & Preferences
     avatar: {
       type: String,
       default: "",
     },
 
-    gender: {
-      type: String,
-      enum: ["male", "female", "other"],
-    },
-
-    dateOfBirth: {
-      type: Date,
-    },
-
-    // Address Book
+    // 🏠 Address Book
     addresses: [
       {
         fullName: String,
@@ -71,7 +60,7 @@ const userSchema = new mongoose.Schema(
       },
     ],
 
-    // E-commerce specific fields
+    // ❤️ Wishlist
     wishlist: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -79,6 +68,7 @@ const userSchema = new mongoose.Schema(
       },
     ],
 
+    // 🛒 Cart
     cart: [
       {
         product: {
@@ -89,18 +79,61 @@ const userSchema = new mongoose.Schema(
           type: Number,
           default: 1,
         },
-        variant: String, // e.g., color/size
+        variant: String, // e.g. color or size
       },
     ],
 
+    // 📦 Order History (Detailed)
     orderHistory: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Order",
+        orderId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Order",
+        },
+        orderNumber: String,
+        status: {
+          type: String,
+          enum: ["pending", "processing", "shipped", "delivered", "cancelled"],
+          default: "pending",
+        },
+        totalAmount: {
+          type: Number,
+          required: true,
+        },
+        paymentMethod: {
+          type: String,
+          enum: ["cod", "bkash", "nagad", "stripe", "paypal"],
+          default: "cod",
+        },
+        products: [
+          {
+            productId: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: "Product",
+            },
+            name: String,
+            quantity: Number,
+            price: Number,
+            variant: String,
+          },
+        ],
+        shippingAddress: {
+          fullName: String,
+          phone: String,
+          street: String,
+          city: String,
+          state: String,
+          postalCode: String,
+          country: String,
+        },
+        orderedAt: {
+          type: Date,
+          default: Date.now,
+        },
       },
     ],
 
-    // Authentication & Security
+    // 🔐 Security
     isVerified: {
       type: Boolean,
       default: false,
