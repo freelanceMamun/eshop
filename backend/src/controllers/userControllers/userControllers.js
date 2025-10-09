@@ -8,7 +8,7 @@ import JWT from "jsonwebtoken";
 const CreateUser = async (request, response) => {
   const { name, email, password, phone } = request.body;
 
-  // Validation
+  // Validation for required fields
 
   try {
     if (!name || !email || !password || !phone) {

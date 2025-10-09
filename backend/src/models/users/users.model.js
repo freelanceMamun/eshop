@@ -133,6 +133,14 @@ const userSchema = new mongoose.Schema(
       },
     ],
 
+    Code: {
+      type: String,
+    },
+
+    deviceIp: {
+      type: String,
+    },
+
     // 🔐 Security
     isVerified: {
       type: Boolean,
