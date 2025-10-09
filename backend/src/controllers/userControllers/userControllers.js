@@ -25,13 +25,11 @@ const createUser = async (request, response) => {
 
     // Password encrypt hashed--
 
-    const encryptPassword = await becrypt.hash(password, 10);
-
     // new user
 
     const user = new USER({
       name,
-      password: encryptPassword,
+      password,
       email: email,
       uuid: uuidv4(),
     });

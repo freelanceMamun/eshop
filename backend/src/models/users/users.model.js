@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
   {
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema(
     // 👑 Role Management
     role: {
       type: String,
-      enum: ["customer", "admin", "seller"],
+      enum: ["customer", "admin"],
       default: "customer",
     },
 

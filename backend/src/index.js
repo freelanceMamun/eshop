@@ -8,6 +8,8 @@ import admin from "./routes/adminRoute.js";
 import customer from "./routes/customerRouter.js";
 const app = express();
 
+app.use(globalError);
+
 app.use(express.json());
 app.use(
   cors({
@@ -27,6 +29,5 @@ app.use("/api/user/", customer);
 app.use("/api", admin);
 
 // ====== Global Error Handelr ============
-app.use(globalError);
 
 export default app;
