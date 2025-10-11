@@ -15,9 +15,13 @@ import { verifyToken, authorizeRoles } from "../auth/AuthVerifiy.js";
 
 Router.post("/login", loginUser);
 Router.post("/create-user", CreateUser);
-Router.get("/public", (req, res) => {
-  return res.status(200).json({ mesg: "Public Route" });
+Router.post("/forgot-password", (req, res) => {
+  res.status(200).json({ mesg: "Forgot Password route" });
 });
+
+//  Privet Route
+
+// Profile update route ,  Dashboadrd route , Order route, Checkout route
 
 // Login USER Route
 
