@@ -112,20 +112,30 @@ const loginUser = async (request, response) => {
   }
 };
 
-// // Fogote Password
-// const forgotePassword = async (request, response) => {
-//   try {
-//     const { password } = request.body;
+// Fogote Password
+const forgotePassword = async (request, response) => {
+  try {
+    const { email } = request.body;
 
-//     return response.json({
-//       status: true,
-//       user: request.UserFind,
-//     });
-//     /// Generate
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+    // Check User Exits
+    const userFound = await USER.findOne({ email });
+
+    if (!userFound) {
+      return response.status(400).json({
+        success: false,
+        message: "User Not Found Please Sign up now! ",
+      });
+    }
+    //  Token
+    const restToken = USER.generateResetPasswordToken();
+
+    await USER.save({ validateBeforeSave: false });
+
+    /// Generate
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // // ForgotPassword save
 

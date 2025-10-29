@@ -21,7 +21,7 @@ Router.post("/forgot-password", (req, res) => {
 
 //  Privet Route
 
-// Profile update route ,  Dashboadrd route , Order route, Checkout route
+// Profile update route ,  Dashboadrd rou te , Order route, Checkout route
 
 // Login USER Route
 
